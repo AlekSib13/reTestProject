@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+protocol LaunchModuleRouterProtocol {}
+
+class LaunchModuleRouter: LaunchModuleRouterProtocol {
+    
+    weak var viewController: LaunchModuleViewControllerProtocol?
+}

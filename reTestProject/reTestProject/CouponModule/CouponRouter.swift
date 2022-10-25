@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+
+protocol CouponRouterProtocol {}
+
+class CouponRouter: CouponRouterProtocol {
+    
+    weak var viewController: CouponViewControllerProtocol?
+}

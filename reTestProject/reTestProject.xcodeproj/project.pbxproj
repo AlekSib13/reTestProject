@@ -10,6 +10,15 @@
 		72D1A70EEC0EA0E2EDCA5A8D /* Pods_reTestProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75A3D52FE3018FAA982BEE5 /* Pods_reTestProject.framework */; };
 		75B5FBEC9DDAB2B5430447A6 /* Pods_reTestProject_reTestProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE800A3BA588694DAAE69AE4 /* Pods_reTestProject_reTestProjectUITests.framework */; };
 		DD35BFCD7AF7AC29A196C5A7 /* Pods_reTestProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD4CF76CECFDA4EF6983262 /* Pods_reTestProjectTests.framework */; };
+		EB7211912908121D00FD7B33 /* RestAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7211902908121D00FD7B33 /* RestAPIService.swift */; };
+		EB721193290815D200FD7B33 /* LaunchModuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB721192290815D200FD7B33 /* LaunchModuleManager.swift */; };
+		EB7211962908161700FD7B33 /* RestAPI + Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7211952908161700FD7B33 /* RestAPI + Launch.swift */; };
+		EB721199290818D900FD7B33 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB721198290818D900FD7B33 /* BaseViewController.swift */; };
+		EB72119B29081D8E00FD7B33 /* RateProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72119A29081D8E00FD7B33 /* RateProductManager.swift */; };
+		EB72119D29081DBB00FD7B33 /* RestAPI + RateProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72119C29081DBB00FD7B33 /* RestAPI + RateProduct.swift */; };
+		EB72119F290821BA00FD7B33 /* CouponManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72119E290821BA00FD7B33 /* CouponManager.swift */; };
+		EB7211A1290821ED00FD7B33 /* RestAPI + Coupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7211A0290821ED00FD7B33 /* RestAPI + Coupon.swift */; };
+		EB7211A52908265200FD7B33 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7211A42908265200FD7B33 /* Colours.swift */; };
 		EB75B462290731C800F222FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB75B461290731C800F222FF /* AppDelegate.swift */; };
 		EB75B464290731C800F222FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB75B463290731C800F222FF /* SceneDelegate.swift */; };
 		EB75B466290731C800F222FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB75B465290731C800F222FF /* ViewController.swift */; };
@@ -24,7 +33,7 @@
 		EBAD9E2C290733A70062F005 /* LaunchModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E2B290733A70062F005 /* LaunchModuleInteractor.swift */; };
 		EBAD9E2E290733B00062F005 /* LaunchModuleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E2D290733B00062F005 /* LaunchModuleRouter.swift */; };
 		EBAD9E30290733B90062F005 /* LaunchModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E2F290733B90062F005 /* LaunchModuleBuilder.swift */; };
-		EBAD9E332907343C0062F005 /* RateProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E322907343C0062F005 /* RateProductViewController.swift */; };
+		EBAD9E332907343C0062F005 /* RateProductPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E322907343C0062F005 /* RateProductPageViewController.swift */; };
 		EBAD9E35290734580062F005 /* RateProductPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E34290734580062F005 /* RateProductPresenter.swift */; };
 		EBAD9E37290734620062F005 /* RateProductInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E36290734620062F005 /* RateProductInteractor.swift */; };
 		EBAD9E392907346B0062F005 /* RateProductRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E382907346B0062F005 /* RateProductRouter.swift */; };
@@ -66,6 +75,15 @@
 		C14A98BFAEEE3BBA4B36829B /* Pods-reTestProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reTestProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-reTestProjectTests/Pods-reTestProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE800A3BA588694DAAE69AE4 /* Pods_reTestProject_reTestProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reTestProject_reTestProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD4CF76CECFDA4EF6983262 /* Pods_reTestProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reTestProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB7211902908121D00FD7B33 /* RestAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPIService.swift; sourceTree = "<group>"; };
+		EB721192290815D200FD7B33 /* LaunchModuleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModuleManager.swift; sourceTree = "<group>"; };
+		EB7211952908161700FD7B33 /* RestAPI + Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RestAPI + Launch.swift"; sourceTree = "<group>"; };
+		EB721198290818D900FD7B33 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		EB72119A29081D8E00FD7B33 /* RateProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProductManager.swift; sourceTree = "<group>"; };
+		EB72119C29081DBB00FD7B33 /* RestAPI + RateProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RestAPI + RateProduct.swift"; sourceTree = "<group>"; };
+		EB72119E290821BA00FD7B33 /* CouponManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponManager.swift; sourceTree = "<group>"; };
+		EB7211A0290821ED00FD7B33 /* RestAPI + Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RestAPI + Coupon.swift"; sourceTree = "<group>"; };
+		EB7211A42908265200FD7B33 /* Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colours.swift; sourceTree = "<group>"; };
 		EB75B45E290731C800F222FF /* reTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB75B461290731C800F222FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB75B463290731C800F222FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +102,7 @@
 		EBAD9E2B290733A70062F005 /* LaunchModuleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModuleInteractor.swift; sourceTree = "<group>"; };
 		EBAD9E2D290733B00062F005 /* LaunchModuleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModuleRouter.swift; sourceTree = "<group>"; };
 		EBAD9E2F290733B90062F005 /* LaunchModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModuleBuilder.swift; sourceTree = "<group>"; };
-		EBAD9E322907343C0062F005 /* RateProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProductViewController.swift; sourceTree = "<group>"; };
+		EBAD9E322907343C0062F005 /* RateProductPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProductPageViewController.swift; sourceTree = "<group>"; };
 		EBAD9E34290734580062F005 /* RateProductPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProductPresenter.swift; sourceTree = "<group>"; };
 		EBAD9E36290734620062F005 /* RateProductInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProductInteractor.swift; sourceTree = "<group>"; };
 		EBAD9E382907346B0062F005 /* RateProductRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProductRouter.swift; sourceTree = "<group>"; };
@@ -154,6 +172,49 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		EB72118E290811FE00FD7B33 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EB72118F2908120700FD7B33 /* Server */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EB72118F2908120700FD7B33 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				EB721194290815F900FD7B33 /* ServerExtensions */,
+				EB7211902908121D00FD7B33 /* RestAPIService.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		EB721194290815F900FD7B33 /* ServerExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				EB7211952908161700FD7B33 /* RestAPI + Launch.swift */,
+				EB72119C29081DBB00FD7B33 /* RestAPI + RateProduct.swift */,
+				EB7211A0290821ED00FD7B33 /* RestAPI + Coupon.swift */,
+			);
+			path = ServerExtensions;
+			sourceTree = "<group>";
+		};
+		EB721197290818C500FD7B33 /* BaseElements */ = {
+			isa = PBXGroup;
+			children = (
+				EB721198290818D900FD7B33 /* BaseViewController.swift */,
+			);
+			path = BaseElements;
+			sourceTree = "<group>";
+		};
+		EB7211A22908263600FD7B33 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EB7211A42908265200FD7B33 /* Colours.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		EB75B455290731C800F222FF = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +240,9 @@
 		EB75B460290731C800F222FF /* reTestProject */ = {
 			isa = PBXGroup;
 			children = (
+				EB7211A22908263600FD7B33 /* Resources */,
+				EB721197290818C500FD7B33 /* BaseElements */,
+				EB72118E290811FE00FD7B33 /* Services */,
 				EBAD9E47290734F60062F005 /* ExternalBrowserModule */,
 				EBAD9E3C290734810062F005 /* CouponModule */,
 				EBAD9E31290733D10062F005 /* RateProductModule */,
@@ -219,6 +283,7 @@
 				EBAD9E2D290733B00062F005 /* LaunchModuleRouter.swift */,
 				EBAD9E2B290733A70062F005 /* LaunchModuleInteractor.swift */,
 				EBAD9E2F290733B90062F005 /* LaunchModuleBuilder.swift */,
+				EB721192290815D200FD7B33 /* LaunchModuleManager.swift */,
 			);
 			path = LaunchModule;
 			sourceTree = "<group>";
@@ -226,11 +291,12 @@
 		EBAD9E31290733D10062F005 /* RateProductModule */ = {
 			isa = PBXGroup;
 			children = (
-				EBAD9E322907343C0062F005 /* RateProductViewController.swift */,
+				EBAD9E322907343C0062F005 /* RateProductPageViewController.swift */,
 				EBAD9E34290734580062F005 /* RateProductPresenter.swift */,
 				EBAD9E36290734620062F005 /* RateProductInteractor.swift */,
 				EBAD9E382907346B0062F005 /* RateProductRouter.swift */,
 				EBAD9E3A290734740062F005 /* RateProductBuilder.swift */,
+				EB72119A29081D8E00FD7B33 /* RateProductManager.swift */,
 			);
 			path = RateProductModule;
 			sourceTree = "<group>";
@@ -243,6 +309,7 @@
 				EBAD9E41290734D00062F005 /* CouponInteractor.swift */,
 				EBAD9E43290734D90062F005 /* CouponRouter.swift */,
 				EBAD9E45290734E70062F005 /* CouponBuilder.swift */,
+				EB72119E290821BA00FD7B33 /* CouponManager.swift */,
 			);
 			path = CouponModule;
 			sourceTree = "<group>";
@@ -498,29 +565,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB7211912908121D00FD7B33 /* RestAPIService.swift in Sources */,
 				EBAD9E4B290735260062F005 /* ExternalBrowserPresenter.swift in Sources */,
 				EBAD9E42290734D00062F005 /* CouponInteractor.swift in Sources */,
+				EB72119F290821BA00FD7B33 /* CouponManager.swift in Sources */,
 				EBAD9E4F2907353A0062F005 /* ExternalBrowserRouter.swift in Sources */,
 				EBAD9E4D290735300062F005 /* ExternalBrowserInteractor.swift in Sources */,
+				EB721199290818D900FD7B33 /* BaseViewController.swift in Sources */,
 				EBAD9E392907346B0062F005 /* RateProductRouter.swift in Sources */,
+				EB72119B29081D8E00FD7B33 /* RateProductManager.swift in Sources */,
 				EBAD9E49290735160062F005 /* ExternalBrowserViewController.swift in Sources */,
 				EBAD9E44290734D90062F005 /* CouponRouter.swift in Sources */,
 				EBAD9E40290734C60062F005 /* CouponPresenter.swift in Sources */,
+				EB721193290815D200FD7B33 /* LaunchModuleManager.swift in Sources */,
 				EB75B466290731C800F222FF /* ViewController.swift in Sources */,
 				EBAD9E2C290733A70062F005 /* LaunchModuleInteractor.swift in Sources */,
+				EB7211A52908265200FD7B33 /* Colours.swift in Sources */,
+				EB7211A1290821ED00FD7B33 /* RestAPI + Coupon.swift in Sources */,
 				EB75B462290731C800F222FF /* AppDelegate.swift in Sources */,
 				EBAD9E282907338E0062F005 /* LaunchModuleViewController.swift in Sources */,
 				EBAD9E30290733B90062F005 /* LaunchModuleBuilder.swift in Sources */,
 				EBAD9E46290734E70062F005 /* CouponBuilder.swift in Sources */,
 				EBAD9E2E290733B00062F005 /* LaunchModuleRouter.swift in Sources */,
 				EB75B464290731C800F222FF /* SceneDelegate.swift in Sources */,
-				EBAD9E332907343C0062F005 /* RateProductViewController.swift in Sources */,
+				EBAD9E332907343C0062F005 /* RateProductPageViewController.swift in Sources */,
 				EBAD9E35290734580062F005 /* RateProductPresenter.swift in Sources */,
 				EBAD9E37290734620062F005 /* RateProductInteractor.swift in Sources */,
 				EBAD9E2A2907339C0062F005 /* LaunchModulePresenter.swift in Sources */,
 				EBAD9E51290735420062F005 /* ExternalBrowserBuilder.swift in Sources */,
+				EB72119D29081DBB00FD7B33 /* RestAPI + RateProduct.swift in Sources */,
 				EBAD9E3E290734B40062F005 /* CouponViewController.swift in Sources */,
 				EBAD9E3B290734740062F005 /* RateProductBuilder.swift in Sources */,
+				EB7211962908161700FD7B33 /* RestAPI + Launch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
