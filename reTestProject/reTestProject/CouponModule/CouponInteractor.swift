@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+
+protocol CouponInteractorProtocol {}
+
+class CouponInteractor: CouponInteractorProtocol {
+    
+    let manager: CouponManagerProtocol
+    weak var presenter: CouponPresenterProtocol?
+    
+    init(manager: CouponManagerProtocol) {
+        self.manager = manager
+    }
+}

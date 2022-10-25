@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+
+protocol LaunchModulePresenterProtocol: AnyObject {}
+
+class LaunchModulePresenter: LaunchModulePresenterProtocol {
+    
+    let interactor: LaunchModuleInteractorProtocol
+    let router: LaunchModuleRouterProtocol
+    weak var viewController: LaunchModuleViewControllerProtocol?
+    
+    init(interactor: LaunchModuleInteractorProtocol, router: LaunchModuleRouterProtocol) {
+        self.interactor = interactor
+        self.router = router
+    }
+}

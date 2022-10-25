@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+
+protocol ExternalBrowserInteractorProtocol {}
+
+class ExternalBrowserInteractor: ExternalBrowserInteractorProtocol {
+    
+    weak var presenter: ExternalBrowserPresenterProtocol?
+}
