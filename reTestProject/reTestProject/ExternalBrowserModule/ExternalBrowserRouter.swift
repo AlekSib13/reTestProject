@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+
+protocol ExternalBrowserRouterProtocol {}
+
+
+class ExternalBrowserRouter: ExternalBrowserRouterProtocol {
+    
+    weak var viewController: ExternalBrowserViewControllerProtocol?
+}

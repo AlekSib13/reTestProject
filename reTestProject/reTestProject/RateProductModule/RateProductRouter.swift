@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+
+protocol RateProductRouterProtocol {}
+
+class RateProductRouter: RateProductRouterProtocol {
+    
+    weak var viewController: RateProductPageViewControllerProtocol?
+}

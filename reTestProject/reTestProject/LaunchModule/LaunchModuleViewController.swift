@@ -6,3 +6,26 @@
 //
 
 import Foundation
+import UIKit
+
+protocol LaunchModuleViewControllerProtocol: AnyObject {}
+
+class LaunchModuleViewController: BaseViewController, LaunchModuleViewControllerProtocol {
+    
+    let presenter: LaunchModulePresenterProtocol
+    
+    init(presenter: LaunchModulePresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    
+    func configureView() {}
+    
+    func setConstraints() {}
+}
