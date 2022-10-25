@@ -6,3 +6,20 @@
 //
 
 import Foundation
+import UIKit
+
+class ExternalBrowserBuilder {
+    
+    static func build() -> UIViewController {
+        let router = ExternalBrowserRouter()
+        let interactor = ExternalBrowserInteractor()
+        let presenter = ExternalBrowserPresenter(interactor: interactor, router: router)
+        let viewController = ExternalBrowserViewController(presenter: presenter)
+        
+        interactor.presenter = presenter
+        router.viewController = viewController
+        presenter.viewController = viewController
+        
+        return viewController
+    }
+}

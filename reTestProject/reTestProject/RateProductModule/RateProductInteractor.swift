@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+
+protocol RateProductInteractorProtocol {}
+
+class RateProductInteractor: RateProductInteractorProtocol {
+    
+    let manager: RateProductManagerProtocol
+    weak var presenter: RateProductPresenterProtocol?
+    
+    init(manager: RateProductManagerProtocol) {
+        self.manager = manager
+    }
+}
