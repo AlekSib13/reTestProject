@@ -10,6 +10,9 @@
 		72D1A70EEC0EA0E2EDCA5A8D /* Pods_reTestProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75A3D52FE3018FAA982BEE5 /* Pods_reTestProject.framework */; };
 		75B5FBEC9DDAB2B5430447A6 /* Pods_reTestProject_reTestProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE800A3BA588694DAAE69AE4 /* Pods_reTestProject_reTestProjectUITests.framework */; };
 		DD35BFCD7AF7AC29A196C5A7 /* Pods_reTestProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD4CF76CECFDA4EF6983262 /* Pods_reTestProjectTests.framework */; };
+		EB25DCDD2908678000BD5E70 /* RateProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25DCDC2908678000BD5E70 /* RateProductViewController.swift */; };
+		EB25DCE129086E3F00BD5E70 /* RateProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25DCE029086E3F00BD5E70 /* RateProductModel.swift */; };
+		EB25DCE329086EFF00BD5E70 /* ModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25DCE229086EFF00BD5E70 /* ModelProtocols.swift */; };
 		EB7211912908121D00FD7B33 /* RestAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7211902908121D00FD7B33 /* RestAPIService.swift */; };
 		EB721193290815D200FD7B33 /* LaunchModuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB721192290815D200FD7B33 /* LaunchModuleManager.swift */; };
 		EB7211962908161700FD7B33 /* RestAPI + Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7211952908161700FD7B33 /* RestAPI + Launch.swift */; };
@@ -75,6 +78,9 @@
 		C14A98BFAEEE3BBA4B36829B /* Pods-reTestProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reTestProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-reTestProjectTests/Pods-reTestProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE800A3BA588694DAAE69AE4 /* Pods_reTestProject_reTestProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reTestProject_reTestProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD4CF76CECFDA4EF6983262 /* Pods_reTestProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reTestProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB25DCDC2908678000BD5E70 /* RateProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProductViewController.swift; sourceTree = "<group>"; };
+		EB25DCE029086E3F00BD5E70 /* RateProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProductModel.swift; sourceTree = "<group>"; };
+		EB25DCE229086EFF00BD5E70 /* ModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProtocols.swift; sourceTree = "<group>"; };
 		EB7211902908121D00FD7B33 /* RestAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPIService.swift; sourceTree = "<group>"; };
 		EB721192290815D200FD7B33 /* LaunchModuleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModuleManager.swift; sourceTree = "<group>"; };
 		EB7211952908161700FD7B33 /* RestAPI + Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RestAPI + Launch.swift"; sourceTree = "<group>"; };
@@ -172,6 +178,23 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		EB25DCDE29086E2200BD5E70 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EB25DCDF29086E2700BD5E70 /* RateProduct */,
+				EB25DCE229086EFF00BD5E70 /* ModelProtocols.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EB25DCDF29086E2700BD5E70 /* RateProduct */ = {
+			isa = PBXGroup;
+			children = (
+				EB25DCE029086E3F00BD5E70 /* RateProductModel.swift */,
+			);
+			path = RateProduct;
+			sourceTree = "<group>";
+		};
 		EB72118E290811FE00FD7B33 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +263,7 @@
 		EB75B460290731C800F222FF /* reTestProject */ = {
 			isa = PBXGroup;
 			children = (
+				EB25DCDE29086E2200BD5E70 /* Models */,
 				EB7211A22908263600FD7B33 /* Resources */,
 				EB721197290818C500FD7B33 /* BaseElements */,
 				EB72118E290811FE00FD7B33 /* Services */,
@@ -297,6 +321,7 @@
 				EBAD9E382907346B0062F005 /* RateProductRouter.swift */,
 				EBAD9E3A290734740062F005 /* RateProductBuilder.swift */,
 				EB72119A29081D8E00FD7B33 /* RateProductManager.swift */,
+				EB25DCDC2908678000BD5E70 /* RateProductViewController.swift */,
 			);
 			path = RateProductModule;
 			sourceTree = "<group>";
@@ -583,10 +608,12 @@
 				EB7211A52908265200FD7B33 /* Colours.swift in Sources */,
 				EB7211A1290821ED00FD7B33 /* RestAPI + Coupon.swift in Sources */,
 				EB75B462290731C800F222FF /* AppDelegate.swift in Sources */,
+				EB25DCE329086EFF00BD5E70 /* ModelProtocols.swift in Sources */,
 				EBAD9E282907338E0062F005 /* LaunchModuleViewController.swift in Sources */,
 				EBAD9E30290733B90062F005 /* LaunchModuleBuilder.swift in Sources */,
 				EBAD9E46290734E70062F005 /* CouponBuilder.swift in Sources */,
 				EBAD9E2E290733B00062F005 /* LaunchModuleRouter.swift in Sources */,
+				EB25DCDD2908678000BD5E70 /* RateProductViewController.swift in Sources */,
 				EB75B464290731C800F222FF /* SceneDelegate.swift in Sources */,
 				EBAD9E332907343C0062F005 /* RateProductPageViewController.swift in Sources */,
 				EBAD9E35290734580062F005 /* RateProductPresenter.swift in Sources */,
@@ -595,6 +622,7 @@
 				EBAD9E51290735420062F005 /* ExternalBrowserBuilder.swift in Sources */,
 				EB72119D29081DBB00FD7B33 /* RestAPI + RateProduct.swift in Sources */,
 				EBAD9E3E290734B40062F005 /* CouponViewController.swift in Sources */,
+				EB25DCE129086E3F00BD5E70 /* RateProductModel.swift in Sources */,
 				EBAD9E3B290734740062F005 /* RateProductBuilder.swift in Sources */,
 				EB7211962908161700FD7B33 /* RestAPI + Launch.swift in Sources */,
 			);
