@@ -6,7 +6,16 @@
 //
 
 import Foundation
+import Alamofire
 
-protocol RestRateProductProtocol {}
+protocol RestRateProductProtocol {
+    func getProductRate(offset: Int, limit: Int, callback: @escaping ProductRateCallback)
+}
 
-extension RestAPIService: RestRateProductProtocol {}
+extension RestAPIService: RestRateProductProtocol {
+    func getProductRate(offset: Int, limit: Int, callback:  @escaping ProductRateCallback) {
+        let url = baseRestURL.appending(path: "/rate_product")
+        let params: Parameters = ["offset": offset, "limit": limit]
+        return makeRequestForData(url: url, params: params, callback: callback)
+    }
+}

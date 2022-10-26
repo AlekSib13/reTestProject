@@ -8,10 +8,14 @@
 import Foundation
 import UIKit
 
-protocol RateProductPageViewControllerProtocol: AnyObject {}
+protocol RateProductPageViewControllerProtocol: AnyObject {
+    func setInitialVC(with data: RateProductModel)
+    func showNoDataCover()
+    func showErrorCover()
+}
 
 class RateProductPageViewController: UIPageViewController, RateProductPageViewControllerProtocol {
-    
+   
     let presenter: RateProductPresenterProtocol
     var vc: RateProductViewControllerProtocol?
     
@@ -31,5 +35,21 @@ class RateProductPageViewController: UIPageViewController, RateProductPageViewCo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.viewDidLoad()
+        configureView()
+        setUpConstraints()
     }
+    
+    
+    func configureView() {}
+    
+    func setUpConstraints() {}
+    
+    func setInitialVC(with data: RateProductModel) {}
+    
+    
+    func showNoDataCover() {}
+    
+    
+    func showErrorCover() {}
 }

@@ -23,9 +23,15 @@ class LaunchModuleViewController: BaseViewController, LaunchModuleViewController
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureView()
+        setConstraints()
+    }
     
     
-    func configureView() {}
+    func configureView() {
+    }
     
     func setConstraints() {}
 }
