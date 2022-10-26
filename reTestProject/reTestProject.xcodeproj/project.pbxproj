@@ -51,6 +51,10 @@
 		EBAD9E4D290735300062F005 /* ExternalBrowserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E4C290735300062F005 /* ExternalBrowserInteractor.swift */; };
 		EBAD9E4F2907353A0062F005 /* ExternalBrowserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E4E2907353A0062F005 /* ExternalBrowserRouter.swift */; };
 		EBAD9E51290735420062F005 /* ExternalBrowserBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E50290735420062F005 /* ExternalBrowserBuilder.swift */; };
+		EBBA9A6129092A820023B4F0 /* CallBacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA9A6029092A820023B4F0 /* CallBacks.swift */; };
+		EBBA9A63290939050023B4F0 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA9A62290939050023B4F0 /* Errors.swift */; };
+		EBBA9A652909445B0023B4F0 /* BaseURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA9A642909445B0023B4F0 /* BaseURLs.swift */; };
+		EBBA9A6729094F910023B4F0 /* GeneralConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA9A6629094F910023B4F0 /* GeneralConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +127,10 @@
 		EBAD9E4C290735300062F005 /* ExternalBrowserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalBrowserInteractor.swift; sourceTree = "<group>"; };
 		EBAD9E4E2907353A0062F005 /* ExternalBrowserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalBrowserRouter.swift; sourceTree = "<group>"; };
 		EBAD9E50290735420062F005 /* ExternalBrowserBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalBrowserBuilder.swift; sourceTree = "<group>"; };
+		EBBA9A6029092A820023B4F0 /* CallBacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallBacks.swift; sourceTree = "<group>"; };
+		EBBA9A62290939050023B4F0 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		EBBA9A642909445B0023B4F0 /* BaseURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURLs.swift; sourceTree = "<group>"; };
+		EBBA9A6629094F910023B4F0 /* GeneralConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralConstants.swift; sourceTree = "<group>"; };
 		F449D7C3BA39ADE28A9040A1 /* Pods-reTestProject-reTestProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reTestProject-reTestProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-reTestProject-reTestProjectUITests/Pods-reTestProject-reTestProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F75A3D52FE3018FAA982BEE5 /* Pods_reTestProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reTestProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -234,6 +242,10 @@
 			isa = PBXGroup;
 			children = (
 				EB7211A42908265200FD7B33 /* Colours.swift */,
+				EBBA9A6029092A820023B4F0 /* CallBacks.swift */,
+				EBBA9A62290939050023B4F0 /* Errors.swift */,
+				EBBA9A642909445B0023B4F0 /* BaseURLs.swift */,
+				EBBA9A6629094F910023B4F0 /* GeneralConstants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -599,12 +611,15 @@
 				EB721199290818D900FD7B33 /* BaseViewController.swift in Sources */,
 				EBAD9E392907346B0062F005 /* RateProductRouter.swift in Sources */,
 				EB72119B29081D8E00FD7B33 /* RateProductManager.swift in Sources */,
+				EBBA9A6129092A820023B4F0 /* CallBacks.swift in Sources */,
 				EBAD9E49290735160062F005 /* ExternalBrowserViewController.swift in Sources */,
 				EBAD9E44290734D90062F005 /* CouponRouter.swift in Sources */,
 				EBAD9E40290734C60062F005 /* CouponPresenter.swift in Sources */,
+				EBBA9A6729094F910023B4F0 /* GeneralConstants.swift in Sources */,
 				EB721193290815D200FD7B33 /* LaunchModuleManager.swift in Sources */,
 				EB75B466290731C800F222FF /* ViewController.swift in Sources */,
 				EBAD9E2C290733A70062F005 /* LaunchModuleInteractor.swift in Sources */,
+				EBBA9A652909445B0023B4F0 /* BaseURLs.swift in Sources */,
 				EB7211A52908265200FD7B33 /* Colours.swift in Sources */,
 				EB7211A1290821ED00FD7B33 /* RestAPI + Coupon.swift in Sources */,
 				EB75B462290731C800F222FF /* AppDelegate.swift in Sources */,
@@ -618,6 +633,7 @@
 				EBAD9E332907343C0062F005 /* RateProductPageViewController.swift in Sources */,
 				EBAD9E35290734580062F005 /* RateProductPresenter.swift in Sources */,
 				EBAD9E37290734620062F005 /* RateProductInteractor.swift in Sources */,
+				EBBA9A63290939050023B4F0 /* Errors.swift in Sources */,
 				EBAD9E2A2907339C0062F005 /* LaunchModulePresenter.swift in Sources */,
 				EBAD9E51290735420062F005 /* ExternalBrowserBuilder.swift in Sources */,
 				EB72119D29081DBB00FD7B33 /* RestAPI + RateProduct.swift in Sources */,

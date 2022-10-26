@@ -37,3 +37,5 @@ struct RateProductModel: AnyProductModelProtocol, Decodable {
         self.productRating = productRating
     }
 }
+
+typealias RateProductResult = [RateProductModel]
