@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 protocol RateProductPresenterProtocol: AnyObject {
     func viewDidLoad()
@@ -33,7 +33,8 @@ class RateProductPresenter: RateProductPresenterProtocol {
             switch result {
             case .success(let data):
                 if let data = data, let firstElement = data.first {
-                    self.viewController?.setInitialVC(with: firstElement)
+//                    self.viewController?.setInitialVC(with: firstElement)
+                    self.setInitialVC(with: firstElement)
                 } else {
                     self.viewController?.showNoDataCover()
                 }
@@ -41,5 +42,11 @@ class RateProductPresenter: RateProductPresenterProtocol {
                 self.viewController?.showErrorCover()
             }
         }
+    }
+    
+    private func setInitialVC(with data: RateProductModel) {
+        guard let viewController = viewController, let pageViewController = viewController as? UIPageViewController else {return}
+        let vc = RateProductViewController(pageIndex: 0, delegate: viewController, data: data)
+        pageViewController.setViewControllers([vc], direction: .forward, animated: true)
     }
 }
