@@ -8,7 +8,9 @@
 import Foundation
 
 
-protocol RateProductManagerProtocol {}
+protocol RateProductManagerProtocol {
+    func getRateProducts(offset: Int, limit: Int, callback: @escaping ProductRateCallback)
+}
 
 class RateProductManager: RateProductManagerProtocol {
     
@@ -16,5 +18,14 @@ class RateProductManager: RateProductManagerProtocol {
     
     init(restService: RestRateProductProtocol) {
         self.restService = restService
+    }
+    
+    
+    func getRateProducts(offset: Int, limit: Int, callback: @escaping ProductRateCallback) {
+        //MARK: mock data
+        
+        
+        //TODO: uncomment for API requests and hide mock data
+//        restService.getProductRate(offset: offset, limit: limit, callback: callback)
     }
 }
