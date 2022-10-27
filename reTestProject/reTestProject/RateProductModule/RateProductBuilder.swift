@@ -14,12 +14,12 @@ class RateProductBuilder {
         let router = RateProductRouter()
         let interactor = RateProductInteractor(manager: RateProductManager(restService: RestAPIService.shared))
         let presenter = RateProductPresenter(interactor: interactor, router: router)
-        let pageViewController = RateProductPageViewController(presenter: presenter)
+        let viewController = RateProductContainerViewController(presenter: presenter)
         
         interactor.presenter = presenter
-        presenter.viewController = pageViewController
-        router.viewController = pageViewController
+        presenter.viewController = viewController
+        router.viewController = viewController
         
-        return pageViewController
+        return viewController
     }
 }

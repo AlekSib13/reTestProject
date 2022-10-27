@@ -31,6 +31,7 @@
 		EB75B479290731C900F222FF /* reTestProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB75B478290731C900F222FF /* reTestProjectTests.swift */; };
 		EB75B483290731C900F222FF /* reTestProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB75B482290731C900F222FF /* reTestProjectUITests.swift */; };
 		EB75B485290731C900F222FF /* reTestProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB75B484290731C900F222FF /* reTestProjectUITestsLaunchTests.swift */; };
+		EB89C82F290AEAA0005B934A /* ManagementBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB89C82E290AEAA0005B934A /* ManagementBarView.swift */; };
 		EBAD9E282907338E0062F005 /* LaunchModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E272907338E0062F005 /* LaunchModuleViewController.swift */; };
 		EBAD9E2A2907339C0062F005 /* LaunchModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E292907339C0062F005 /* LaunchModulePresenter.swift */; };
 		EBAD9E2C290733A70062F005 /* LaunchModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E2B290733A70062F005 /* LaunchModuleInteractor.swift */; };
@@ -51,6 +52,7 @@
 		EBAD9E4D290735300062F005 /* ExternalBrowserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E4C290735300062F005 /* ExternalBrowserInteractor.swift */; };
 		EBAD9E4F2907353A0062F005 /* ExternalBrowserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E4E2907353A0062F005 /* ExternalBrowserRouter.swift */; };
 		EBAD9E51290735420062F005 /* ExternalBrowserBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E50290735420062F005 /* ExternalBrowserBuilder.swift */; };
+		EBB9C8C8290AD256001D0BBF /* RateProductContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB9C8C7290AD256001D0BBF /* RateProductContainerViewController.swift */; };
 		EBBA9A6129092A820023B4F0 /* CallBacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA9A6029092A820023B4F0 /* CallBacks.swift */; };
 		EBBA9A63290939050023B4F0 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA9A62290939050023B4F0 /* Errors.swift */; };
 		EBBA9A652909445B0023B4F0 /* BaseURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA9A642909445B0023B4F0 /* BaseURLs.swift */; };
@@ -107,6 +109,7 @@
 		EB75B47E290731C900F222FF /* reTestProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = reTestProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB75B482290731C900F222FF /* reTestProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reTestProjectUITests.swift; sourceTree = "<group>"; };
 		EB75B484290731C900F222FF /* reTestProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reTestProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EB89C82E290AEAA0005B934A /* ManagementBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementBarView.swift; sourceTree = "<group>"; };
 		EBAD9E272907338E0062F005 /* LaunchModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModuleViewController.swift; sourceTree = "<group>"; };
 		EBAD9E292907339C0062F005 /* LaunchModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModulePresenter.swift; sourceTree = "<group>"; };
 		EBAD9E2B290733A70062F005 /* LaunchModuleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModuleInteractor.swift; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 		EBAD9E4C290735300062F005 /* ExternalBrowserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalBrowserInteractor.swift; sourceTree = "<group>"; };
 		EBAD9E4E2907353A0062F005 /* ExternalBrowserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalBrowserRouter.swift; sourceTree = "<group>"; };
 		EBAD9E50290735420062F005 /* ExternalBrowserBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalBrowserBuilder.swift; sourceTree = "<group>"; };
+		EBB9C8C7290AD256001D0BBF /* RateProductContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProductContainerViewController.swift; sourceTree = "<group>"; };
 		EBBA9A6029092A820023B4F0 /* CallBacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallBacks.swift; sourceTree = "<group>"; };
 		EBBA9A62290939050023B4F0 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		EBBA9A642909445B0023B4F0 /* BaseURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURLs.swift; sourceTree = "<group>"; };
@@ -311,6 +315,14 @@
 			path = reTestProjectUITests;
 			sourceTree = "<group>";
 		};
+		EB89C82D290AEA80005B934A /* ModuleViews */ = {
+			isa = PBXGroup;
+			children = (
+				EB89C82E290AEAA0005B934A /* ManagementBarView.swift */,
+			);
+			path = ModuleViews;
+			sourceTree = "<group>";
+		};
 		EBAD9E26290733760062F005 /* LaunchModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +339,7 @@
 		EBAD9E31290733D10062F005 /* RateProductModule */ = {
 			isa = PBXGroup;
 			children = (
+				EB89C82D290AEA80005B934A /* ModuleViews */,
 				EBAD9E322907343C0062F005 /* RateProductPageViewController.swift */,
 				EBAD9E34290734580062F005 /* RateProductPresenter.swift */,
 				EBAD9E36290734620062F005 /* RateProductInteractor.swift */,
@@ -334,6 +347,7 @@
 				EBAD9E3A290734740062F005 /* RateProductBuilder.swift */,
 				EB72119A29081D8E00FD7B33 /* RateProductManager.swift */,
 				EB25DCDC2908678000BD5E70 /* RateProductViewController.swift */,
+				EBB9C8C7290AD256001D0BBF /* RateProductContainerViewController.swift */,
 			);
 			path = RateProductModule;
 			sourceTree = "<group>";
@@ -633,9 +647,11 @@
 				EBAD9E332907343C0062F005 /* RateProductPageViewController.swift in Sources */,
 				EBAD9E35290734580062F005 /* RateProductPresenter.swift in Sources */,
 				EBAD9E37290734620062F005 /* RateProductInteractor.swift in Sources */,
+				EB89C82F290AEAA0005B934A /* ManagementBarView.swift in Sources */,
 				EBBA9A63290939050023B4F0 /* Errors.swift in Sources */,
 				EBAD9E2A2907339C0062F005 /* LaunchModulePresenter.swift in Sources */,
 				EBAD9E51290735420062F005 /* ExternalBrowserBuilder.swift in Sources */,
+				EBB9C8C8290AD256001D0BBF /* RateProductContainerViewController.swift in Sources */,
 				EB72119D29081DBB00FD7B33 /* RestAPI + RateProduct.swift in Sources */,
 				EBAD9E3E290734B40062F005 /* CouponViewController.swift in Sources */,
 				EB25DCE129086E3F00BD5E70 /* RateProductModel.swift in Sources */,
