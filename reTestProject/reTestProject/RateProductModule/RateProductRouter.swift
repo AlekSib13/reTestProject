@@ -12,5 +12,5 @@ protocol RateProductRouterProtocol {}
 
 class RateProductRouter: RateProductRouterProtocol {
     
-    weak var viewController: RateProductPageViewControllerProtocol?
+    weak var viewController: RateProductContainerViewControllerProtocol?
 }

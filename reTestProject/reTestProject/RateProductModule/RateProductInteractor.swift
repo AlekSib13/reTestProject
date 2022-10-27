@@ -10,13 +10,21 @@ import Foundation
 
 protocol RateProductInteractorProtocol {
     func getData(offset: Int, limit: Int, callback: @escaping (Result<[RateProductModel]?, Error>) -> Void)
+    func getLoadedItemsList() -> [RateProductModel]
+    func getCountedLoadedItems() -> Int
 }
 
 class RateProductInteractor: RateProductInteractorProtocol {
     
     let manager: RateProductManagerProtocol
     weak var presenter: RateProductPresenterProtocol?
-    var data = [RateProductModel]()
+    var data = [RateProductModel]() {
+        didSet {
+            countedDataItems = data.count
+        }
+    }
+    
+    var countedDataItems = 0
     
     init(manager: RateProductManagerProtocol) {
         self.manager = manager
@@ -43,5 +51,13 @@ class RateProductInteractor: RateProductInteractorProtocol {
                 assertionFailure(errorDescription)
             }
         }
+    }
+    
+    func getLoadedItemsList() -> [RateProductModel] {
+        data
+    }
+    
+    func getCountedLoadedItems() -> Int {
+        countedDataItems
     }
 }
