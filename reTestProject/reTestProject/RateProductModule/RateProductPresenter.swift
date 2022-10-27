@@ -8,15 +8,17 @@
 import Foundation
 import UIKit
 
-protocol RateProductPresenterProtocol: AnyObject {
+protocol RateProductPresenterProtocol: AnyObject, RateProductPageViewControllerDelegate {
     func viewDidLoad()
 }
 
-class RateProductPresenter: RateProductPresenterProtocol {
-    
+class RateProductPresenter: NSObject, RateProductPresenterProtocol {
+   
     let interactor: RateProductInteractorProtocol
     let router: RateProductRouterProtocol
-    weak var viewController: RateProductPageViewControllerProtocol?
+    weak var viewController: RateProductContainerViewControllerProtocol?
+    
+    var nextIndex: Int?
     
     init(interactor: RateProductInteractorProtocol, router: RateProductRouterProtocol) {
         self.interactor = interactor
@@ -45,8 +47,47 @@ class RateProductPresenter: RateProductPresenterProtocol {
     }
     
     private func setInitialVC(with data: RateProductModel) {
-        guard let viewController = viewController, let pageViewController = viewController as? UIPageViewController else {return}
-        let vc = RateProductViewController(pageIndex: 0, delegate: viewController, data: data)
-        pageViewController.setViewControllers([vc], direction: .forward, animated: true)
+        guard let vc = viewController else {return}
+        let pageVC = vc.pageViewController as UIPageViewController
+        let initialVC = RateProductViewController(pageIndex: 0, data: data)
+        pageVC.setViewControllers([initialVC], direction: .forward, animated: true)
     }
+    
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let currentVC = viewController as? RateProductViewController else {return nil}
+        let currentIndex = currentVC.pageIndex
+        let previousIndex = currentIndex - 1
+        
+        if previousIndex >= 0 {
+            let previousVC = RateProductViewController(pageIndex: previousIndex, data: interactor.getLoadedItemsList()[previousIndex])
+            
+            return previousVC
+        }
+        return nil
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let currentVC = viewController as? RateProductViewController else {return nil}
+        let currentIndex = currentVC.pageIndex
+        let nextIndex = currentIndex + 1
+        
+        if nextIndex <= interactor.getCountedLoadedItems() - 1 {
+            let nextVC = RateProductViewController(pageIndex: nextIndex, data: interactor.getLoadedItemsList()[nextIndex])
+            
+            return nextVC
+        }
+        return nil
+    }
+    
+//    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+//        guard let vc = pendingViewControllers.first as? RateProductViewController else {return}
+//        nextIndex = vc.pageIndex
+//    }
+//    
+//    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+//        if completed {
+//            guard let nextIndex = nextIndex else {return}
+//        }
+//    }
 }

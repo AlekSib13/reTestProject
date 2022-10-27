@@ -8,44 +8,32 @@
 import Foundation
 import UIKit
 
-protocol RateProductPageViewControllerProtocol: AnyObject, RateProductViewControllerDelegate {
-//    func setInitialVC(with data: RateProductModel)
-    func showNoDataCover()
-    func showErrorCover()
+
+protocol RateProductPageViewControllerDelegate: UIPageViewControllerDelegate, UIPageViewControllerDataSource {}
+
+
+protocol RateProductPageViewControllerProtocol: AnyObject where Self: UIPageViewController {
+    func setDelegate(delegate: RateProductPageViewControllerDelegate)
 }
 
 class RateProductPageViewController: UIPageViewController, RateProductPageViewControllerProtocol {
+    
    
-    let presenter: RateProductPresenterProtocol
-    
-    init(presenter: RateProductPresenterProtocol) {
-        self.presenter = presenter
-        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal)
-        
-        guard let window = UIApplication.shared.delegate?.window else {return}
-        print("the window is \(window)")
-        window?.rootViewController = self
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
         configureView()
         setUpConstraints()
     }
     
     
-    func configureView() {}
+    func configureView() {
+        view.backgroundColor = .white
+    }
     
     func setUpConstraints() {}
     
-    
-    func showNoDataCover() {}
-    
-    
-    func showErrorCover() {}
+    func setDelegate(delegate: RateProductPageViewControllerDelegate) {
+        self.delegate = delegate
+        self.dataSource = delegate
+    }
 }

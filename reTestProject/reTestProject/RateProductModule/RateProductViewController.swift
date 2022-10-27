@@ -11,8 +11,6 @@ import SnapKit
 import SDWebImage
 
 
-protocol RateProductViewControllerDelegate {
-}
 
 protocol RateProductViewControllerProtocol {
     var pageIndex: Int {get set}
@@ -20,6 +18,9 @@ protocol RateProductViewControllerProtocol {
 
 class RateProductViewController: BaseViewController, UIScrollViewDelegate, RateProductViewControllerProtocol {
     
+    struct Constants {
+        static let maxScaleFactor: CGFloat = 4
+    }
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -37,12 +38,10 @@ class RateProductViewController: BaseViewController, UIScrollViewDelegate, RateP
     }()
     
     var pageIndex: Int
-    let delegate: RateProductViewControllerDelegate
     let data: RateProductModel
     
-    init(pageIndex: Int, delegate: RateProductViewControllerDelegate, data: RateProductModel) {
+    init(pageIndex: Int, data: RateProductModel) {
         self.pageIndex = pageIndex
-        self.delegate = delegate
         self.data = data
         
         super.init(nibName: nil, bundle: nil)
@@ -60,16 +59,12 @@ class RateProductViewController: BaseViewController, UIScrollViewDelegate, RateP
         scrollView.delegate = self
         configure(with: data)
     }
-    
-    override func viewDidLayoutSubviews() {
-        adjustConstraints()
-    }
+
     
     private func configureView() {
         view.addSubview(scrollView)
         scrollView.addSubview(imageView)
     }
-  
     
     private func setConstraints() {
         scrollView.snp.makeConstraints {make in
@@ -89,6 +84,11 @@ class RateProductViewController: BaseViewController, UIScrollViewDelegate, RateP
         }
     }
     
+   override func viewDidLayoutSubviews() {
+       super.viewDidLayoutSubviews()
+       adjustConstraints()
+    }
+    
     private func scaleScrollViewSubviews() {
         setMaxAndMinZoomScale()
     }
@@ -100,7 +100,7 @@ class RateProductViewController: BaseViewController, UIScrollViewDelegate, RateP
         let yScale = UIScreen.main.bounds.height / imageViewBoundsSize.height
         let minScale = min(xScale, yScale)
         
-        let maxScale: CGFloat = 4
+        let maxScale = Constants.maxScaleFactor
         
         scrollView.minimumZoomScale = minScale
         scrollView.maximumZoomScale = maxScale
@@ -108,20 +108,27 @@ class RateProductViewController: BaseViewController, UIScrollViewDelegate, RateP
         scrollView.zoomScale = scrollView.minimumZoomScale
     }
     
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
+    
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        UIView.animate(withDuration: 0.5, delay: 0, animations: {[weak self] in
+            guard let self = self else {return}
+            self.scrollView.zoomScale = self.scrollView.minimumZoomScale
+        })
+    }
+    
     private func adjustConstraints() {
         guard let imageViewBoundsSize = imageView.image?.size else {return}
-        let scrollViewBoundsSize = scrollView.bounds.size
-        let sidesRationResult = imageViewBoundsSize.width > imageViewBoundsSize.height
-        let offsetCoeff = sidesRationResult ? 0.5 : 1
-        if sidesRationResult {
-            imageView.snp.remakeConstraints {make in
-                make.top.equalToSuperview().offset(scrollViewBoundsSize.width * offsetCoeff)
-                make.left.right.bottom.equalToSuperview()
-            }
-        } else {
-            imageView.snp.remakeConstraints {make in
-                make.edges.equalToSuperview()
-            }
+        let scrollViewBoundsSize = scrollView.bounds
+        
+        let offset = (scrollViewBoundsSize.height - scrollView.zoomScale * imageViewBoundsSize.height) / 2
+        imageView.snp.remakeConstraints {make in
+            make.left.right.equalToSuperview()
+            make.top.equalToSuperview().offset(offset)
+            make.bottom.equalToSuperview().inset(offset)
         }
     }
+    
 }
