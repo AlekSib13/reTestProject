@@ -14,4 +14,8 @@ struct GeneralConstants {
         static let requestDefaultLimit = 10
         static let requestDefaultOffset = 0
     }
+    
+    struct Spacing {
+        static let offsetOf10 = 10
+    }
 }
