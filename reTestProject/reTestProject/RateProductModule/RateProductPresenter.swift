@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-protocol RateProductPresenterProtocol: AnyObject, RateProductPageViewControllerDelegate {
+protocol RateProductPresenterProtocol: AnyObject, RateProductPageViewControllerDelegate, RateProductViewControllerDelegate {
     func viewDidLoad()
 }
 
 class RateProductPresenter: NSObject, RateProductPresenterProtocol {
-   
+ 
     let interactor: RateProductInteractorProtocol
     let router: RateProductRouterProtocol
     weak var viewController: RateProductContainerViewControllerProtocol?
@@ -49,7 +49,7 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
     private func setInitialVC(with data: RateProductModel) {
         guard let vc = viewController else {return}
         let pageVC = vc.pageViewController as UIPageViewController
-        let initialVC = RateProductViewController(pageIndex: 0, data: data)
+        let initialVC = RateProductViewController(pageIndex: 0, data: data, delegate: self)
         pageVC.setViewControllers([initialVC], direction: .forward, animated: true)
     }
     
@@ -60,7 +60,7 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
         let previousIndex = currentIndex - 1
         
         if previousIndex >= 0 {
-            let previousVC = RateProductViewController(pageIndex: previousIndex, data: interactor.getLoadedItemsList()[previousIndex])
+            let previousVC = RateProductViewController(pageIndex: previousIndex, data: interactor.getLoadedItemsList()[previousIndex], delegate: self)
             
             return previousVC
         }
@@ -73,7 +73,7 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
         let nextIndex = currentIndex + 1
         
         if nextIndex <= interactor.getCountedLoadedItems() - 1 {
-            let nextVC = RateProductViewController(pageIndex: nextIndex, data: interactor.getLoadedItemsList()[nextIndex])
+            let nextVC = RateProductViewController(pageIndex: nextIndex, data: interactor.getLoadedItemsList()[nextIndex], delegate: self)
             
             return nextVC
         }
@@ -90,4 +90,12 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
 //            guard let nextIndex = nextIndex else {return}
 //        }
 //    }
+    
+    func showImageInfo() {
+        viewController?.handleImageInfoApperanceState(forceHideRequired: false)
+    }
+    
+    func forceHideImageInfo() {
+        viewController?.handleImageInfoApperanceState(forceHideRequired: true)
+    }
 }

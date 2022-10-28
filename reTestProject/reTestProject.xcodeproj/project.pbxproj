@@ -31,6 +31,9 @@
 		EB75B479290731C900F222FF /* reTestProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB75B478290731C900F222FF /* reTestProjectTests.swift */; };
 		EB75B483290731C900F222FF /* reTestProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB75B482290731C900F222FF /* reTestProjectUITests.swift */; };
 		EB75B485290731C900F222FF /* reTestProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB75B484290731C900F222FF /* reTestProjectUITestsLaunchTests.swift */; };
+		EB75D58C290B9FF600138069 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB75D58B290B9FF600138069 /* Images.swift */; };
+		EB75D58E290BAD5000138069 /* TopInfoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB75D58D290BAD5000138069 /* TopInfoBarView.swift */; };
+		EB75D590290BCDBA00138069 /* BaseUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB75D58F290BCDBA00138069 /* BaseUILabel.swift */; };
 		EB89C82F290AEAA0005B934A /* ManagementBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB89C82E290AEAA0005B934A /* ManagementBarView.swift */; };
 		EBAD9E282907338E0062F005 /* LaunchModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E272907338E0062F005 /* LaunchModuleViewController.swift */; };
 		EBAD9E2A2907339C0062F005 /* LaunchModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD9E292907339C0062F005 /* LaunchModulePresenter.swift */; };
@@ -109,6 +112,9 @@
 		EB75B47E290731C900F222FF /* reTestProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = reTestProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB75B482290731C900F222FF /* reTestProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reTestProjectUITests.swift; sourceTree = "<group>"; };
 		EB75B484290731C900F222FF /* reTestProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reTestProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EB75D58B290B9FF600138069 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		EB75D58D290BAD5000138069 /* TopInfoBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopInfoBarView.swift; sourceTree = "<group>"; };
+		EB75D58F290BCDBA00138069 /* BaseUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUILabel.swift; sourceTree = "<group>"; };
 		EB89C82E290AEAA0005B934A /* ManagementBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementBarView.swift; sourceTree = "<group>"; };
 		EBAD9E272907338E0062F005 /* LaunchModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModuleViewController.swift; sourceTree = "<group>"; };
 		EBAD9E292907339C0062F005 /* LaunchModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModulePresenter.swift; sourceTree = "<group>"; };
@@ -238,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				EB721198290818D900FD7B33 /* BaseViewController.swift */,
+				EB75D58F290BCDBA00138069 /* BaseUILabel.swift */,
 			);
 			path = BaseElements;
 			sourceTree = "<group>";
@@ -250,6 +257,7 @@
 				EBBA9A62290939050023B4F0 /* Errors.swift */,
 				EBBA9A642909445B0023B4F0 /* BaseURLs.swift */,
 				EBBA9A6629094F910023B4F0 /* GeneralConstants.swift */,
+				EB75D58B290B9FF600138069 /* Images.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -319,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				EB89C82E290AEAA0005B934A /* ManagementBarView.swift */,
+				EB75D58D290BAD5000138069 /* TopInfoBarView.swift */,
 			);
 			path = ModuleViews;
 			sourceTree = "<group>";
@@ -623,6 +632,7 @@
 				EBAD9E4F2907353A0062F005 /* ExternalBrowserRouter.swift in Sources */,
 				EBAD9E4D290735300062F005 /* ExternalBrowserInteractor.swift in Sources */,
 				EB721199290818D900FD7B33 /* BaseViewController.swift in Sources */,
+				EB75D58C290B9FF600138069 /* Images.swift in Sources */,
 				EBAD9E392907346B0062F005 /* RateProductRouter.swift in Sources */,
 				EB72119B29081D8E00FD7B33 /* RateProductManager.swift in Sources */,
 				EBBA9A6129092A820023B4F0 /* CallBacks.swift in Sources */,
@@ -636,6 +646,7 @@
 				EBBA9A652909445B0023B4F0 /* BaseURLs.swift in Sources */,
 				EB7211A52908265200FD7B33 /* Colours.swift in Sources */,
 				EB7211A1290821ED00FD7B33 /* RestAPI + Coupon.swift in Sources */,
+				EB75D590290BCDBA00138069 /* BaseUILabel.swift in Sources */,
 				EB75B462290731C800F222FF /* AppDelegate.swift in Sources */,
 				EB25DCE329086EFF00BD5E70 /* ModelProtocols.swift in Sources */,
 				EBAD9E282907338E0062F005 /* LaunchModuleViewController.swift in Sources */,
@@ -650,6 +661,7 @@
 				EB89C82F290AEAA0005B934A /* ManagementBarView.swift in Sources */,
 				EBBA9A63290939050023B4F0 /* Errors.swift in Sources */,
 				EBAD9E2A2907339C0062F005 /* LaunchModulePresenter.swift in Sources */,
+				EB75D58E290BAD5000138069 /* TopInfoBarView.swift in Sources */,
 				EBAD9E51290735420062F005 /* ExternalBrowserBuilder.swift in Sources */,
 				EBB9C8C8290AD256001D0BBF /* RateProductContainerViewController.swift in Sources */,
 				EB72119D29081DBB00FD7B33 /* RestAPI + RateProduct.swift in Sources */,
