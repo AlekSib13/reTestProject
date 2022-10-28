@@ -16,22 +16,23 @@ protocol RateProductContainerViewControllerProtocol: AnyObject {
     func handleImageInfoApperanceState(forceHideRequired: Bool)
 }
 
-class RateProductContainerViewController: UIViewController, RateProductContainerViewControllerProtocol, ManagementBarViewDelegate, InfoTopBarViewDelegate {
+class RateProductContainerViewController: UINavigationController, RateProductContainerViewControllerProtocol, ManagementBarViewDelegate, InfoTopBarViewDelegate {
     
   
     let presenter: RateProductPresenterProtocol
     let pageViewController: RateProductPageViewControllerProtocol = RateProductPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     lazy var managementBar: ManagementBarViewProtocol = ManagementBarView(delegate: self)
     lazy var infoBar: InfoTopBarViewProtocol = InfoTopBarView(delegate: self)
+    lazy var slider: SliderBarProtocol = ProgressBarSlider()
     
     
     init(presenter: RateProductPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
         
-//        guard let window = UIApplication.shared.delegate?.window else {return}
-//        print("the window is \(window)")
-//        window?.rootViewController = self
+        guard let window = UIApplication.shared.delegate?.window else {return}
+        print("the window is \(window)")
+        window?.rootViewController = self
     }
     
     required init?(coder: NSCoder) {
@@ -51,6 +52,7 @@ class RateProductContainerViewController: UIViewController, RateProductContainer
         view.addSubview(pageVC.view)
         view.addSubview(managementBar)
         view.addSubview(infoBar)
+        view.addSubview(slider)
         
         infoBar.isHidden = true
         
@@ -81,6 +83,12 @@ class RateProductContainerViewController: UIViewController, RateProductContainer
             make.top.equalToSuperview()
             make.height.equalTo(view.safeAreaInsets.top + GeneralConstants.Size.sizeOf50)
         }
+        
+        slider.snp.makeConstraints {make in
+            make.bottom.equalTo(managementBar.snp.top).inset(GeneralConstants.Spacing.offsetOf5)
+            make.left.right.equalToSuperview().inset(GeneralConstants.Spacing.offsetOf5)
+            make.height.equalTo(GeneralConstants.Size.sizeOf40)
+        }
     }
     
     private func refreshConstraints () {
@@ -96,17 +104,29 @@ class RateProductContainerViewController: UIViewController, RateProductContainer
     }
     
     
-    func infoTapped() {}
+    func infoTapped() {
+        assertionFailure("info Tapped")
+    }
     
-    func showNoDataCover() {}
+    func showNoDataCover() {
+        assertionFailure("no data cover")
+    }
     
-    func showErrorCover() {}
+    func showErrorCover() {
+        assertionFailure("error cover")
+    }
     
-    func liked() {}
+    func liked() {
+        assertionFailure("liked pressed")
+    }
     
-    func disliked() {}
+    func disliked() {
+        assertionFailure("disLike pressed")
+    }
     
-    func skip() {}
+    func skip() {
+        assertionFailure("skip pressed")
+    }
     
     
     func handleImageInfoApperanceState(forceHideRequired: Bool) {

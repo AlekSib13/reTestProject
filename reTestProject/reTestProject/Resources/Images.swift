@@ -16,4 +16,8 @@ extension UIImage {
         static let skip = { UIImage(named: "skip") }()
         static let info = { UIImage(named: "info") }()
     }
+    
+    struct RateProduct {
+        static let coupon = { UIImage(named: "coupon") }()
+    }
 }
