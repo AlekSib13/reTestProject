@@ -28,6 +28,7 @@ struct GeneralConstants {
         static var sizeOf10: CGFloat {10}
         static var sizeOf20: CGFloat {20}
         static var sizeOf15: CGFloat {15}
+        static var sizeOf40: CGFloat {40}
         static var sizeOf50: CGFloat {50}
         static var sizeOf60: CGFloat {60}
         static var sizeOf80: CGFloat {80}

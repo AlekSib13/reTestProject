@@ -7,128 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7A5E478B-318F-496C-99BD-97155AC3B479"
-            shouldBeEnabled = "Yes"
+            uuid = "85B47134-13D2-4DEE-A71F-46501E56F047"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "reTestProject/RateProductModule/RateProductContainerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "handleImageInfoApperanceState(forceHideRequired:)"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "init(presenter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EFC2AE39-6F6E-4652-B59D-8741DA976C81"
-            shouldBeEnabled = "Yes"
+            uuid = "E20E43F6-F5C3-49E1-ABBE-A1B1A899CC10"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "reTestProject/RateProductModule/RateProductContainerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "animateInfoAppearance()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EC0E23D6-9125-468D-A433-E112080AEAB4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "reTestProject/RateProductModule/RateProductContainerViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "animateInfoDisappearance()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "EC0E23D6-9125-468D-A433-E112080AEAB4 - bb973a9b4bc1ab82"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "reTestProject.RateProductContainerViewController.animateInfoDisappearance() -&gt; ()"
-                  moduleName = "reTestProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksandrmalinin/Desktop/reTestProject/reTestProject/reTestProject/reTestProject/RateProductModule/RateProductContainerViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "135"
-                  endingLineNumber = "135"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  uuid = "EC0E23D6-9125-468D-A433-E112080AEAB4 - 945c9aefa815097"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in reTestProject.RateProductContainerViewController.animateInfoDisappearance() -&gt; ()"
-                  moduleName = "reTestProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksandrmalinin/Desktop/reTestProject/reTestProject/reTestProject/reTestProject/RateProductModule/RateProductContainerViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "135"
-                  endingLineNumber = "135"
-                  offsetFromSymbolStart = "60">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8AA71DD8-5E97-4497-80BB-6EBC6C28684C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "reTestProject/RateProductModule/RateProductContainerViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "handleImageInfoApperanceState(forceHideRequired:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B7815389-ABF6-4CD1-B923-5ED3856B9314"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "reTestProject/RateProductModule/RateProductPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "showImageInfo()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6240F3F1-D717-437D-97F5-C8075A5AC4D5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "reTestProject/RateProductModule/RateProductPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "forceHideImageInfo()"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "init(presenter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
