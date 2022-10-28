@@ -60,6 +60,7 @@
 		EBBA9A63290939050023B4F0 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA9A62290939050023B4F0 /* Errors.swift */; };
 		EBBA9A652909445B0023B4F0 /* BaseURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA9A642909445B0023B4F0 /* BaseURLs.swift */; };
 		EBBA9A6729094F910023B4F0 /* GeneralConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA9A6629094F910023B4F0 /* GeneralConstants.swift */; };
+		EBEC9623290BF0250095B790 /* ProgressBarSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEC9622290BF0250095B790 /* ProgressBarSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		EBBA9A62290939050023B4F0 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		EBBA9A642909445B0023B4F0 /* BaseURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURLs.swift; sourceTree = "<group>"; };
 		EBBA9A6629094F910023B4F0 /* GeneralConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralConstants.swift; sourceTree = "<group>"; };
+		EBEC9622290BF0250095B790 /* ProgressBarSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarSlider.swift; sourceTree = "<group>"; };
 		F449D7C3BA39ADE28A9040A1 /* Pods-reTestProject-reTestProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reTestProject-reTestProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-reTestProject-reTestProjectUITests/Pods-reTestProject-reTestProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F75A3D52FE3018FAA982BEE5 /* Pods_reTestProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reTestProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -328,6 +330,7 @@
 			children = (
 				EB89C82E290AEAA0005B934A /* ManagementBarView.swift */,
 				EB75D58D290BAD5000138069 /* TopInfoBarView.swift */,
+				EBEC9622290BF0250095B790 /* ProgressBarSlider.swift */,
 			);
 			path = ModuleViews;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				EB75B466290731C800F222FF /* ViewController.swift in Sources */,
 				EBAD9E2C290733A70062F005 /* LaunchModuleInteractor.swift in Sources */,
 				EBBA9A652909445B0023B4F0 /* BaseURLs.swift in Sources */,
+				EBEC9623290BF0250095B790 /* ProgressBarSlider.swift in Sources */,
 				EB7211A52908265200FD7B33 /* Colours.swift in Sources */,
 				EB7211A1290821ED00FD7B33 /* RestAPI + Coupon.swift in Sources */,
 				EB75D590290BCDBA00138069 /* BaseUILabel.swift in Sources */,
