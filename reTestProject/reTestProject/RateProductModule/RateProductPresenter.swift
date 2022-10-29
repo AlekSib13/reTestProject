@@ -11,7 +11,7 @@ import UIKit
 protocol RateProductPresenterProtocol: AnyObject, RateProductPageViewControllerDelegate, RateProductViewControllerDelegate {
     func viewDidLoad()
     func openExternalInfoSource()
-    func rateImage(rated: ProductRatingRange)
+    func rateProduct(rated: ProductRatingRange)
 }
 
 class RateProductPresenter: NSObject, RateProductPresenterProtocol {
@@ -38,7 +38,7 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
     }
     
     private func makeInitialDataRequest() {
-        interactor.getData(offset: GeneralConstants.APIGeneralConstants.requestDefaultOffset, limit: GeneralConstants.APIGeneralConstants.requestDefaultLimit) {[weak self] result in
+        interactor.getProductsData(offset: GeneralConstants.APIGeneralConstants.requestDefaultOffset, limit: GeneralConstants.APIGeneralConstants.requestDefaultLimit) {[weak self] result in
             guard let self = self else {return}
             switch result {
             case .success(let data):
@@ -129,26 +129,28 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
         viewController?.fillDescription(text: text)
     }
     
-    func rateImage(rated: ProductRatingRange) {
-           guard let currentIndex = currentIndex else {return}
+    func rateProduct(rated: ProductRatingRange) {
+        guard let currentIndex = currentIndex else {return}
         
-           print("send rating")
+        interactor.sendProductRating(at: currentIndex, rating: rated) {result in
+            //TODO: Stopped here
+        }
         
-           switch rated {
-           case .skipped:
-               if interactor.getCountedLoadedItems() == 1 {
-                   viewController?.showDataExceptionalSituation(situation: .noDataToEvaluate)
-                   interactor.removeData(at: currentIndex)
-               } else {
-                   interactor.removeData(at: currentIndex)
-                   if currentIndex > interactor.getCountedLoadedItems() - 1 {
-                       setNewVC(newIndex: currentIndex - 1, with: interactor.getLoadedItemsList()[currentIndex - 1], direction: .backwards)
-                   } else {
-                       setNewVC(newIndex: currentIndex, with: interactor.getLoadedItemsList()[currentIndex], direction: .forward)
-                   }
-               }
-           default:
-               break
-           }
-       }
+        switch rated {
+        case .skipped:
+            if interactor.getCountedLoadedItems() == 1 {
+                viewController?.showDataExceptionalSituation(situation: .noDataToEvaluate)
+                interactor.removeData(at: currentIndex)
+            } else {
+                interactor.removeData(at: currentIndex)
+                if currentIndex > interactor.getCountedLoadedItems() - 1 {
+                    setNewVC(newIndex: currentIndex - 1, with: interactor.getLoadedItemsList()[currentIndex - 1], direction: .backwards)
+                } else {
+                    setNewVC(newIndex: currentIndex, with: interactor.getLoadedItemsList()[currentIndex], direction: .forward)
+                }
+            }
+        default:
+            break
+        }
+    }
 }

@@ -15,19 +15,19 @@ enum ProductRatingRange: Int {
 
 struct RateProductModel: AnyProductModelProtocol, Decodable {
     
-    var id: Int
-    var productName: String
-    var productImage: String
+    let id: Int
+    let productName: String
+    let productImage: String
     var productRating: Int?
-    var interestingInfo: String?
-    var productLink: String?
+    let interestingInfo: String?
+    let productLink: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "ID"
         case productName = "NAME"
         case productImage = "IMAGE"
         case productRating = "RATING"
-        case interestingInfo = "INTERESTINGINFO"
+        case interestingInfo = "INTERESTING_INFO"
         case productLink = "LINK"
     }
     
