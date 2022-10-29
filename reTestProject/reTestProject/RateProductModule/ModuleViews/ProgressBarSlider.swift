@@ -75,39 +75,3 @@ class ProgressBarSlider: UISlider, SliderBarProtocol {
         trackLayer.frame = CGRect(x: 0, y: frame.height / 4, width: thumbR.maxX, height:  frame.height / 2)
     }
 }
-
-//TODO: make thumbImage via snapshot in future releases
-//protocol ThumbViewProtocol where Self: UISlider {}
-
-//class ThumbView: UIView {
-//
-//    let couponImage: UIButton = {
-//        let button = UIButton()
-//        button.setImage(UIImage.Buttons.coupon?.withRenderingMode(.alwaysTemplate), for: .normal)
-//        button.imageView?.tintColor = UIColor.BaseColours.turquoiseBlueKrayola30PercentOpaqued
-//        button.isUserInteractionEnabled = false
-//        return button
-//    }()
-//
-//    init() {
-//        super.init(frame: .zero)
-//        configureView()
-//        setUpConstraints()
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
-//    private func configureView() {
-//        backgroundColor = UIColor.BaseColours.turquoiseBlueKrayola
-//        addSubview(couponImage)
-//    }
-//
-//    private func setUpConstraints() {
-//        couponImage.snp.makeConstraints {make in
-//            make.centerY.centerX.equalToSuperview()
-//            make.width.height.equalTo(GeneralConstants.Size.sizeOf15)
-//        }
-//    }
-//}

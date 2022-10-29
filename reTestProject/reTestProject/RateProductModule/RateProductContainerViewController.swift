@@ -10,13 +10,14 @@ import UIKit
 import SnapKit
 
 protocol RateProductContainerViewControllerProtocol: AnyObject {
-    var pageViewController: RateProductPageViewControllerProtocol {get}
+    var  pageViewController: RateProductPageViewControllerProtocol {get}
     func showNoDataCover()
     func showErrorCover()
     func handleImageInfoApperanceState(forceHideRequired: Bool)
+    func fillDescription(text: String?)
 }
 
-class RateProductContainerViewController: UINavigationController, RateProductContainerViewControllerProtocol, ManagementBarViewDelegate, InfoTopBarViewDelegate {
+class RateProductContainerViewController: BaseViewController, RateProductContainerViewControllerProtocol, ManagementBarViewDelegate, InfoTopBarViewDelegate {
     
   
     let presenter: RateProductPresenterProtocol
@@ -29,10 +30,6 @@ class RateProductContainerViewController: UINavigationController, RateProductCon
     init(presenter: RateProductPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
-        
-        guard let window = UIApplication.shared.delegate?.window else {return}
-        print("the window is \(window)")
-        window?.rootViewController = self
     }
     
     required init?(coder: NSCoder) {
@@ -46,10 +43,16 @@ class RateProductContainerViewController: UINavigationController, RateProductCon
         presenter.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     
     private func configureView() {
         let pageVC = pageViewController as UIPageViewController
         view.addSubview(pageVC.view)
+        
         view.addSubview(managementBar)
         view.addSubview(infoBar)
         view.addSubview(slider)
@@ -105,7 +108,7 @@ class RateProductContainerViewController: UINavigationController, RateProductCon
     
     
     func infoTapped() {
-        assertionFailure("info Tapped")
+        presenter.openExternalInfoSource()
     }
     
     func showNoDataCover() {
@@ -162,5 +165,9 @@ class RateProductContainerViewController: UINavigationController, RateProductCon
                 self.infoBar.isHidden = true
             }
         }
+    }
+    
+    func fillDescription(text: String?) {
+        infoBar.setInfoBarText(text: text)
     }
 }

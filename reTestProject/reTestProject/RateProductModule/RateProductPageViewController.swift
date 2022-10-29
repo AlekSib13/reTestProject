@@ -25,7 +25,6 @@ class RateProductPageViewController: UIPageViewController, RateProductPageViewCo
         setUpConstraints()
     }
     
-    
     func configureView() {
         view.backgroundColor = .white
     }
