@@ -128,7 +128,7 @@ class RateProductContainerViewController: BaseViewController, RateProductContain
     }
     
     func skip() {
-        presenter.rateImage(rated: .skipped)
+        presenter.rateProduct(rated: .skipped)
     }
     
     

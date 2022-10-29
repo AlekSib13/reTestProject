@@ -10,6 +10,7 @@ import Foundation
 
 protocol RateProductManagerProtocol {
     func getRateProducts(offset: Int, limit: Int, callback: @escaping ProductRateCallback)
+    func sendProductRating(for id: Int, dict: [String: Int], callback: @escaping UserScoreCallback)
 }
 
 class RateProductManager: RateProductManagerProtocol {
@@ -19,7 +20,6 @@ class RateProductManager: RateProductManagerProtocol {
     init(restService: RestRateProductProtocol) {
         self.restService = restService
     }
-    
     
     func getRateProducts(offset: Int, limit: Int, callback: @escaping ProductRateCallback) {
         //MARK: mock data
@@ -37,5 +37,12 @@ class RateProductManager: RateProductManagerProtocol {
         callback(.success(mockingData))
         //TODO: uncomment for API requests and hide mock data
 //        restService.getProductRate(offset: offset, limit: limit, callback: callback)
+    }
+    
+    func sendProductRating(for id: Int, dict: [String: Int], callback: @escaping UserScoreCallback) {
+        let userScore = UserScoreModel(currentScore: 0, totalScore: 30)
+        callback(.success(userScore))
+        //TODO: uncomment for API requests and hide mock data
+//        restService.sendRating(id: id, dict: dict, callback: callback)
     }
 }

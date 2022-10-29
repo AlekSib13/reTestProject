@@ -13,6 +13,7 @@ struct BaseErrors: Error {
         case serverError
         case decodingError
         case none
+        case encodingError
     }
     
     let errorType: ErrorType
