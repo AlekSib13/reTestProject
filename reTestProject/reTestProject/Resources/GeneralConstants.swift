@@ -34,5 +34,6 @@ struct GeneralConstants {
         static var sizeOf80: CGFloat {80}
         static var sizeOf110: CGFloat {110}
         static var sizeOf120: CGFloat {120}
+        static var sizeOf300: CGFloat {300}
     }
 }

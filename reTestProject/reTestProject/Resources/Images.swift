@@ -20,4 +20,9 @@ extension UIImage {
     struct RateProduct {
         static let coupon = { UIImage(named: "coupon") }()
     }
+    
+    struct Cover {
+        static let nothingToEvaluate = { UIImage(named: "nothingToEvaluate") }()
+        static let noData = { UIImage(named: "noData") }()
+    }
 }

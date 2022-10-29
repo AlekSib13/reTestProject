@@ -141,7 +141,6 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
                    interactor.removeData(at: currentIndex)
                } else {
                    interactor.removeData(at: currentIndex)
-                   print()
                    if currentIndex > interactor.getCountedLoadedItems() - 1 {
                        setNewVC(newIndex: currentIndex - 1, with: interactor.getLoadedItemsList()[currentIndex - 1], direction: .backwards)
                    } else {
