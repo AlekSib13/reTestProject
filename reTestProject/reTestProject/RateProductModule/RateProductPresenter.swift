@@ -10,6 +10,7 @@ import UIKit
 
 protocol RateProductPresenterProtocol: AnyObject, RateProductPageViewControllerDelegate, RateProductViewControllerDelegate {
     func viewDidLoad()
+    func openExternalInfoSource()
 }
 
 class RateProductPresenter: NSObject, RateProductPresenterProtocol {
@@ -19,6 +20,7 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
     weak var viewController: RateProductContainerViewControllerProtocol?
     
     var nextIndex: Int?
+    var currentIndex: Int?
     
     init(interactor: RateProductInteractorProtocol, router: RateProductRouterProtocol) {
         self.interactor = interactor
@@ -35,7 +37,6 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
             switch result {
             case .success(let data):
                 if let data = data, let firstElement = data.first {
-//                    self.viewController?.setInitialVC(with: firstElement)
                     self.setInitialVC(with: firstElement)
                 } else {
                     self.viewController?.showNoDataCover()
@@ -49,7 +50,9 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
     private func setInitialVC(with data: RateProductModel) {
         guard let vc = viewController else {return}
         let pageVC = vc.pageViewController as UIPageViewController
+        currentIndex = 0
         let initialVC = RateProductViewController(pageIndex: 0, data: data, delegate: self)
+        setItemDescription(text: data.interestingInfo)
         pageVC.setViewControllers([initialVC], direction: .forward, animated: true)
     }
     
@@ -60,8 +63,8 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
         let previousIndex = currentIndex - 1
         
         if previousIndex >= 0 {
-            let previousVC = RateProductViewController(pageIndex: previousIndex, data: interactor.getLoadedItemsList()[previousIndex], delegate: self)
-            
+            let data = interactor.getLoadedItemsList()[previousIndex]
+            let previousVC = RateProductViewController(pageIndex: previousIndex, data: data, delegate: self)
             return previousVC
         }
         return nil
@@ -73,23 +76,27 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
         let nextIndex = currentIndex + 1
         
         if nextIndex <= interactor.getCountedLoadedItems() - 1 {
-            let nextVC = RateProductViewController(pageIndex: nextIndex, data: interactor.getLoadedItemsList()[nextIndex], delegate: self)
-            
+            let data = interactor.getLoadedItemsList()[nextIndex]
+            let nextVC = RateProductViewController(pageIndex: nextIndex, data: data, delegate: self)
             return nextVC
         }
         return nil
     }
     
-//    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-//        guard let vc = pendingViewControllers.first as? RateProductViewController else {return}
-//        nextIndex = vc.pageIndex
-//    }
-//    
-//    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-//        if completed {
-//            guard let nextIndex = nextIndex else {return}
-//        }
-//    }
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        guard let vc = pendingViewControllers.first as? RateProductViewController else {return}
+        nextIndex = vc.pageIndex
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed {
+            currentIndex = nextIndex
+            nextIndex = nil
+            if let currentIndex {
+                setItemDescription(text: interactor.getLoadedItemsList()[currentIndex].interestingInfo)
+            }
+        }
+    }
     
     func showImageInfo() {
         viewController?.handleImageInfoApperanceState(forceHideRequired: false)
@@ -97,5 +104,17 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
     
     func forceHideImageInfo() {
         viewController?.handleImageInfoApperanceState(forceHideRequired: true)
+    }
+    
+    func openExternalInfoSource() {
+        if let currentIndex {
+            let item = interactor.getLoadedItemsList()[currentIndex]
+            guard let link = item.productLink, let url = URL(string: link) else {return}
+            router.openSource(viaLink: url)
+        }
+    }
+    
+    private func setItemDescription(text: String?) {
+        viewController?.fillDescription(text: text)
     }
 }
