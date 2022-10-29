@@ -54,6 +54,7 @@ class RateProductContainerViewController: BaseViewController, RateProductContain
         view.addSubview(pageVC.view)
         addChild(pageViewController)
         pageViewController.didMove(toParent: self)
+        print("do")
         
         view.addSubview(managementBar)
         view.addSubview(infoBar)
