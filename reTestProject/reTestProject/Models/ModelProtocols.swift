@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol AnyProductModelProtocol {
-    var id: Int {get set}
-    var productName: String {get set}
-    var productImage: String {get set}
+    var id: Int {get}
+    var productName: String {get}
+    var productImage: String {get}
 }

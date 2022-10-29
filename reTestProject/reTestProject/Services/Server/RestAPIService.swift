@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 protocol RestAPIServiceProtocol {
-    func makeRequestForData<T: Decodable>(url: URL, method: HTTPMethod, params: Parameters?, callback: @escaping DecodableCallback<T>)
+    func makeDecodableRequestForData<T: Decodable>(url: URL, method: HTTPMethod, params: Parameters?, httpBody: Data?, callback: @escaping DecodableCallback<T>)
     func getHeaders() -> HTTPHeaders
 }
 
@@ -33,8 +33,17 @@ class RestAPIService: RestAPIServiceProtocol {
     }
     
     
-    func makeRequestForData<T>(url: URL, method: HTTPMethod = .get, params: Parameters? = nil, callback: @escaping DecodableCallback<T>) where T : Decodable {
-        AF.request(url, method: method, parameters: params, encoding: URLEncoding.default, headers: getHeaders()).validate().response(queue: decodingQueue) {[weak self] response in
+    func makeDecodableRequestForData<T>(url: URL, method: HTTPMethod = .get, params: Parameters? = nil, httpBody: Data? = nil,  callback: @escaping DecodableCallback<T>) where T : Decodable {
+        
+        var request = try! URLRequest(url: url, method: method, headers: getHeaders())
+        
+        if let httpBody {
+            request.httpBody = httpBody
+        }
+        
+        request = try! URLEncoding(boolEncoding: .literal).encode(request, with: params)
+        
+        AF.request(request).validate().response(queue: decodingQueue) {[weak self] response in
             guard let self = self else {return}
             switch response.result {
             case .success(let data):
@@ -66,5 +75,10 @@ class RestAPIService: RestAPIServiceProtocol {
                 callback(.failure(decodingError))
             }
         }
+    }
+    
+    
+    func endcode<T: Encodable>(data: T) throws -> Data {
+        try JSONEncoder().encode(data)
     }
 }

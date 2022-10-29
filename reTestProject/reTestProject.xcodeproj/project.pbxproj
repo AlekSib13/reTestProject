@@ -13,6 +13,7 @@
 		EB25DCDD2908678000BD5E70 /* RateProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25DCDC2908678000BD5E70 /* RateProductViewController.swift */; };
 		EB25DCE129086E3F00BD5E70 /* RateProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25DCE029086E3F00BD5E70 /* RateProductModel.swift */; };
 		EB25DCE329086EFF00BD5E70 /* ModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25DCE229086EFF00BD5E70 /* ModelProtocols.swift */; };
+		EB3FBC50290D979100DDD666 /* UserScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3FBC4F290D979100DDD666 /* UserScoreModel.swift */; };
 		EB7211912908121D00FD7B33 /* RestAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7211902908121D00FD7B33 /* RestAPIService.swift */; };
 		EB721193290815D200FD7B33 /* LaunchModuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB721192290815D200FD7B33 /* LaunchModuleManager.swift */; };
 		EB7211962908161700FD7B33 /* RestAPI + Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7211952908161700FD7B33 /* RestAPI + Launch.swift */; };
@@ -92,6 +93,7 @@
 		EB25DCDC2908678000BD5E70 /* RateProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProductViewController.swift; sourceTree = "<group>"; };
 		EB25DCE029086E3F00BD5E70 /* RateProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProductModel.swift; sourceTree = "<group>"; };
 		EB25DCE229086EFF00BD5E70 /* ModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProtocols.swift; sourceTree = "<group>"; };
+		EB3FBC4F290D979100DDD666 /* UserScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScoreModel.swift; sourceTree = "<group>"; };
 		EB7211902908121D00FD7B33 /* RestAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPIService.swift; sourceTree = "<group>"; };
 		EB721192290815D200FD7B33 /* LaunchModuleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModuleManager.swift; sourceTree = "<group>"; };
 		EB7211952908161700FD7B33 /* RestAPI + Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RestAPI + Launch.swift"; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				EB25DCE029086E3F00BD5E70 /* RateProductModel.swift */,
+				EB3FBC4F290D979100DDD666 /* UserScoreModel.swift */,
 			);
 			path = RateProduct;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				EBAD9E332907343C0062F005 /* RateProductPageViewController.swift in Sources */,
 				EBAD9E35290734580062F005 /* RateProductPresenter.swift in Sources */,
 				EBAD9E37290734620062F005 /* RateProductInteractor.swift in Sources */,
+				EB3FBC50290D979100DDD666 /* UserScoreModel.swift in Sources */,
 				EB89C82F290AEAA0005B934A /* ManagementBarView.swift in Sources */,
 				EBBA9A63290939050023B4F0 /* Errors.swift in Sources */,
 				EBAD9E2A2907339C0062F005 /* LaunchModulePresenter.swift in Sources */,
