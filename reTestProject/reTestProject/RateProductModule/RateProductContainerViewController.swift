@@ -11,8 +11,7 @@ import SnapKit
 
 protocol RateProductContainerViewControllerProtocol: AnyObject {
     var  pageViewController: RateProductPageViewControllerProtocol {get}
-    func showNoDataCover()
-    func showErrorCover()
+    func showDataExceptionalSituation(situation: DataExceptionalSituation)
     func handleImageInfoApperanceState(forceHideRequired: Bool)
     func fillDescription(text: String?)
 }
@@ -111,12 +110,9 @@ class RateProductContainerViewController: BaseViewController, RateProductContain
         presenter.openExternalInfoSource()
     }
     
-    func showNoDataCover() {
-        assertionFailure("no data cover")
-    }
-    
-    func showErrorCover() {
-        assertionFailure("error cover")
+    func showDataExceptionalSituation(situation: DataExceptionalSituation) {
+//        assertionFailure("no data cover")
+        print("do")
     }
     
     func liked() {
@@ -128,7 +124,7 @@ class RateProductContainerViewController: BaseViewController, RateProductContain
     }
     
     func skip() {
-        assertionFailure("skip pressed")
+        presenter.rateImage(rated: .skipped)
     }
     
     

@@ -12,6 +12,7 @@ protocol RateProductInteractorProtocol {
     func getData(offset: Int, limit: Int, callback: @escaping (Result<[RateProductModel]?, Error>) -> Void)
     func getLoadedItemsList() -> [RateProductModel]
     func getCountedLoadedItems() -> Int
+    func removeData(at index: Int)
 }
 
 class RateProductInteractor: RateProductInteractorProtocol {
@@ -59,5 +60,9 @@ class RateProductInteractor: RateProductInteractorProtocol {
     
     func getCountedLoadedItems() -> Int {
         countedDataItems
+    }
+    
+    func removeData(at index: Int) {
+        data.remove(at: index)
     }
 }
