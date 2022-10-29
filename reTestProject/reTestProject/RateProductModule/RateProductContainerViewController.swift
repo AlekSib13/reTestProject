@@ -37,6 +37,7 @@ class RateProductContainerViewController: BaseViewController, RateProductContain
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         configureView()
         setUpConstraints()
         presenter.viewDidLoad()
@@ -51,6 +52,8 @@ class RateProductContainerViewController: BaseViewController, RateProductContain
     private func configureView() {
         let pageVC = pageViewController as UIPageViewController
         view.addSubview(pageVC.view)
+        addChild(pageViewController)
+        pageViewController.didMove(toParent: self)
         
         view.addSubview(managementBar)
         view.addSubview(infoBar)
@@ -59,6 +62,8 @@ class RateProductContainerViewController: BaseViewController, RateProductContain
         infoBar.isHidden = true
         
         pageViewController.setDelegate(delegate: presenter)
+        
+        view.bringSubviewToFront(noDataView)
     }
     
     override func viewDidLayoutSubviews() {
@@ -111,8 +116,7 @@ class RateProductContainerViewController: BaseViewController, RateProductContain
     }
     
     func showDataExceptionalSituation(situation: DataExceptionalSituation) {
-//        assertionFailure("no data cover")
-        print("do")
+        showExceptionalSituationView(situation: situation)
     }
     
     func liked() {

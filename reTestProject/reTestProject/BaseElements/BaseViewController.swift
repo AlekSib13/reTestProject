@@ -17,6 +17,18 @@ enum DataExceptionalSituation {
 
 class BaseViewController: UIViewController {
     
+    let noDataView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    
+    lazy var noDataImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -25,7 +37,36 @@ class BaseViewController: UIViewController {
     
     private func configure() {
         view.backgroundColor = UIColor.BaseColours.turquoiseBlueKrayola
+        view.addSubview(noDataView)
+        noDataView.isHidden = true
     }
     
-    private func setConstraints() {}
+    private func setConstraints() {
+        noDataView.snp.makeConstraints {make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    func showExceptionalSituationView(situation: DataExceptionalSituation) {
+        noDataView.addSubview(noDataImageView)
+        noDataImageView.snp.makeConstraints {make in
+            make.centerY.centerX.equalToSuperview()
+            make.height.width.equalTo(GeneralConstants.Size.sizeOf300)
+        }
+        
+        switch situation {
+        case .noDataToEvaluate:
+            noDataImageView.image = UIImage.Cover.nothingToEvaluate
+        default:
+            break
+        }
+        noDataView.isHidden = false
+    }
+    
+    func hideExceptionalSituationView() {
+        noDataView.isHidden = true
+        noDataView.subviews.forEach {view in
+            view.removeFromSuperview()
+        }
+    }
 }
