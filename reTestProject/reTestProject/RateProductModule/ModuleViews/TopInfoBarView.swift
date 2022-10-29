@@ -12,7 +12,9 @@ import UIKit
 import SnapKit
 
 
-protocol InfoTopBarViewProtocol where Self: UIView{}
+protocol InfoTopBarViewProtocol where Self: UIView{
+    func setInfoBarText(text: String?)
+}
 
 protocol InfoTopBarViewDelegate {
     func infoTapped()
@@ -37,7 +39,7 @@ class InfoTopBarView: UIView, InfoTopBarViewProtocol {
         let label = BaseUILabel()
         label.font = UIFont.systemFont(ofSize: GeneralConstants.Size.sizeOf15, weight: .regular)
         label.tintColor = UIColor.BaseColours.baseGray
-        label.lineBreakMode = .byWordWrapping
+        label.lineBreakMode = .byTruncatingTail
         label.numberOfLines = Constants.defaultNumOfLines
         label.layer.cornerRadius = GeneralConstants.Size.sizeOf5
         label.layer.backgroundColor = UIColor.white.cgColor
@@ -81,8 +83,9 @@ class InfoTopBarView: UIView, InfoTopBarViewProtocol {
         hBarStack.addArrangedSubview(descriptionLabel)
         hBarStack.addArrangedSubview(infoButton)
         
-        descriptionLabel.text = "Some text bla bla bla dkcmdklsmck dcndjncdjcndjcndjncdsjncdjsncsdjncs asgxsahgxahxa slsl"
+        infoButton.addTarget(self, action: #selector(infoTapped), for: .touchUpInside)
         
+        descriptionLabel.isHidden = true
     }
     
     private func setUpConstraints() {
@@ -100,5 +103,15 @@ class InfoTopBarView: UIView, InfoTopBarViewProtocol {
     
     @objc private func infoTapped() {
         delegate.infoTapped()
+    }
+    
+    func setInfoBarText(text: String?) {
+        if let text {
+            descriptionLabel.text = text
+            descriptionLabel.isHidden = false
+        } else {
+            descriptionLabel.isHidden = true
+            descriptionLabel.text = nil
+        }
     }
 }

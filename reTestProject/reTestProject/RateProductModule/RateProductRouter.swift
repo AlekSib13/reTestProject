@@ -6,11 +6,19 @@
 //
 
 import Foundation
+import UIKit
 
-
-protocol RateProductRouterProtocol {}
+protocol RateProductRouterProtocol {
+    func openSource(viaLink: URL)
+}
 
 class RateProductRouter: RateProductRouterProtocol {
     
     weak var viewController: RateProductContainerViewControllerProtocol?
+    
+    func openSource(viaLink: URL) {
+        guard let currentVC = viewController as? UIViewController else {return}
+        let nextVC = ExternalBrowserBuilder.build()
+        currentVC.navigationController?.pushViewController(nextVC, animated: true)
+    }
 }

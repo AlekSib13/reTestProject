@@ -57,7 +57,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
     
     private func setLaunchModule() -> UIViewController {
-//        return LaunchModuleBuilder.build()
-        return RateProductBuilder.build()
+        let initialVC = RateProductBuilder.build()
+        let nvc = BaseNavigationController(rootViewController: initialVC)
+        return nvc
     }
 }
