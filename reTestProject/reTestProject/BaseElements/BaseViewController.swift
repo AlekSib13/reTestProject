@@ -9,6 +9,12 @@ import Foundation
 import UIKit
 import SnapKit
 
+enum DataExceptionalSituation {
+    case noData
+    case noDataToEvaluate
+    case errorOccured
+}
+
 class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
