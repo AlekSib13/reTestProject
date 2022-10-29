@@ -130,26 +130,25 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
     }
     
     func rateImage(rated: ProductRatingRange) {
-           guard let currentIndex = currentIndex else {return}
+        guard let currentIndex = currentIndex else {return}
         
-           print("send rating")
+        print("send rating")
         
-           switch rated {
-           case .skipped:
-               if interactor.getCountedLoadedItems() == 1 {
-                   viewController?.showDataExceptionalSituation(situation: .noDataToEvaluate)
-                   interactor.removeData(at: currentIndex)
-               } else {
-                   interactor.removeData(at: currentIndex)
-                   print()
-                   if currentIndex > interactor.getCountedLoadedItems() - 1 {
-                       setNewVC(newIndex: currentIndex - 1, with: interactor.getLoadedItemsList()[currentIndex - 1], direction: .backwards)
-                   } else {
-                       setNewVC(newIndex: currentIndex, with: interactor.getLoadedItemsList()[currentIndex], direction: .forward)
-                   }
-               }
-           default:
-               break
-           }
-       }
+        switch rated {
+        case .skipped:
+            if interactor.getCountedLoadedItems() == 1 {
+                viewController?.showDataExceptionalSituation(situation: .noDataToEvaluate)
+                interactor.removeData(at: currentIndex)
+            } else {
+                interactor.removeData(at: currentIndex)
+                if currentIndex > interactor.getCountedLoadedItems() - 1 {
+                    setNewVC(newIndex: currentIndex - 1, with: interactor.getLoadedItemsList()[currentIndex - 1], direction: .backwards)
+                } else {
+                    setNewVC(newIndex: currentIndex, with: interactor.getLoadedItemsList()[currentIndex], direction: .forward)
+                }
+            }
+        default:
+            break
+        }
+    }
 }

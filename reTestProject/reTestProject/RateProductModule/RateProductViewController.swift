@@ -21,7 +21,7 @@ protocol RateProductViewControllerDelegate {
     func forceHideImageInfo()
 }
 
-class RateProductViewController: BaseViewController, UIScrollViewDelegate, RateProductViewControllerProtocol {
+class RateProductViewController: UIViewController, UIScrollViewDelegate, RateProductViewControllerProtocol {
     
     struct Constants {
         static let maxScaleFactor: CGFloat = 4
