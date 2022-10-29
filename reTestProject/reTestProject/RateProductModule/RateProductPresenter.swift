@@ -11,9 +11,15 @@ import UIKit
 protocol RateProductPresenterProtocol: AnyObject, RateProductPageViewControllerDelegate, RateProductViewControllerDelegate {
     func viewDidLoad()
     func openExternalInfoSource()
+    func rateImage(rated: ProductRatingRange)
 }
 
 class RateProductPresenter: NSObject, RateProductPresenterProtocol {
+    
+    private enum PageSwitchDirection {
+        case forward
+        case backwards
+    }
  
     let interactor: RateProductInteractorProtocol
     let router: RateProductRouterProtocol
@@ -37,23 +43,28 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
             switch result {
             case .success(let data):
                 if let data = data, let firstElement = data.first {
-                    self.setInitialVC(with: firstElement)
+                    self.setNewVC(with: firstElement)
                 } else {
-                    self.viewController?.showNoDataCover()
+                    self.viewController?.showDataExceptionalSituation(situation: .noData)
                 }
             case .failure(_):
-                self.viewController?.showErrorCover()
+                self.viewController?.showDataExceptionalSituation(situation: .errorOccured)
             }
         }
     }
     
-    private func setInitialVC(with data: RateProductModel) {
+    private func setNewVC(newIndex: Int = 0, with data: RateProductModel, direction: PageSwitchDirection = .forward) {
         guard let vc = viewController else {return}
         let pageVC = vc.pageViewController as UIPageViewController
-        currentIndex = 0
-        let initialVC = RateProductViewController(pageIndex: 0, data: data, delegate: self)
+        currentIndex = newIndex
+        let initialVC = RateProductViewController(pageIndex: newIndex, data: data, delegate: self)
         setItemDescription(text: data.interestingInfo)
-        pageVC.setViewControllers([initialVC], direction: .forward, animated: true)
+        switch direction {
+        case .forward:
+            pageVC.setViewControllers([initialVC], direction: .forward, animated: true)
+        case .backwards:
+            pageVC.setViewControllers([initialVC], direction: .reverse, animated: true)
+        }
     }
     
     
@@ -117,4 +128,28 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
     private func setItemDescription(text: String?) {
         viewController?.fillDescription(text: text)
     }
+    
+    func rateImage(rated: ProductRatingRange) {
+           guard let currentIndex = currentIndex else {return}
+        
+           print("send rating")
+        
+           switch rated {
+           case .skipped:
+               if interactor.getCountedLoadedItems() == 1 {
+                   viewController?.showDataExceptionalSituation(situation: .noDataToEvaluate)
+                   interactor.removeData(at: currentIndex)
+               } else {
+                   interactor.removeData(at: currentIndex)
+                   print()
+                   if currentIndex > interactor.getCountedLoadedItems() - 1 {
+                       setNewVC(newIndex: currentIndex - 1, with: interactor.getLoadedItemsList()[currentIndex - 1], direction: .backwards)
+                   } else {
+                       setNewVC(newIndex: currentIndex, with: interactor.getLoadedItemsList()[currentIndex], direction: .forward)
+                   }
+               }
+           default:
+               break
+           }
+       }
 }
