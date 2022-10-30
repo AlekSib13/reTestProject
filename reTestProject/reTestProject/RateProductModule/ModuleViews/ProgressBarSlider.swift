@@ -10,7 +10,9 @@ import UIKit
 import SnapKit
 
 
-protocol SliderBarProtocol where Self: UISlider {}
+protocol SliderBarProtocol where Self: UISlider {
+    func setSliderValues(currentValue: Float, maxValue: Float)
+}
 
 class ProgressBarSlider: UISlider, SliderBarProtocol {
     
@@ -47,6 +49,7 @@ class ProgressBarSlider: UISlider, SliderBarProtocol {
         setThumbImage(UIImage.RateProduct.coupon, for: .selected)
         
         addTarget(self, action: #selector(thumbValueChanged(_:)), for: .valueChanged)
+        minimumValue = 0
     }
     
     private func configureBaseLayer() {
@@ -73,5 +76,11 @@ class ProgressBarSlider: UISlider, SliderBarProtocol {
     @objc private func thumbValueChanged(_ sender: ProgressBarSlider) {
         let thumbR = thumbRect(forBounds: bounds, trackRect: trackRect(forBounds: bounds), value: sender.value)
         trackLayer.frame = CGRect(x: 0, y: frame.height / 4, width: thumbR.maxX, height:  frame.height / 2)
+    }
+    
+    func setSliderValues(currentValue: Float, maxValue: Float) {
+        maximumValue = maxValue
+        value = currentValue
+        thumbValueChanged(self)
     }
 }

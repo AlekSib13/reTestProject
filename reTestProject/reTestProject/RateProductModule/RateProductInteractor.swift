@@ -27,7 +27,15 @@ class RateProductInteractor: RateProductInteractorProtocol {
     }
     
     //TODO: separateModel for user score
-    var userScore: UserScoreModel?
+    var userScore: UserScoreModel? {
+        didSet {
+            if let userScore {
+                if userScore.totalScore - userScore.currentScore == 0 {
+                    presenter?.showReward()
+                }
+            }
+        }
+    }
     
     var countedDataItems = 0
     
