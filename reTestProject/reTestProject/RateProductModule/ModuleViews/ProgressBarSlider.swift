@@ -50,6 +50,8 @@ class ProgressBarSlider: UISlider, SliderBarProtocol {
         
         addTarget(self, action: #selector(thumbValueChanged(_:)), for: .valueChanged)
         minimumValue = 0
+        
+        isUserInteractionEnabled = false
     }
     
     private func configureBaseLayer() {

@@ -6,17 +6,19 @@
 //
 
 import Foundation
-
+import UIKit
 
 protocol CouponRouterProtocol {
-    func openExternalSource(with: URL)
+    func openExternalSource(with url: URL)
 }
 
 class CouponRouter: CouponRouterProtocol {
     
     weak var viewController: CouponViewControllerProtocol?
     
-    func openExternalSource(with: URL) {
-        assertionFailure("openExternalSource")
+    func openExternalSource(with url: URL) {
+        guard let viewController = viewController as? UIViewController else {return}
+        let vc = ExternalBrowserBuilder.build(url: url)
+        viewController.present(vc, animated: true)
     }
 }

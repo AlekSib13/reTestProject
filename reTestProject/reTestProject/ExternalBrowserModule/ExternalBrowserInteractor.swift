@@ -8,9 +8,23 @@
 import Foundation
 
 
-protocol ExternalBrowserInteractorProtocol {}
+protocol ExternalBrowserInteractorProtocol {
+    func getUrl() -> URL
+}
 
 class ExternalBrowserInteractor: ExternalBrowserInteractorProtocol {
     
     weak var presenter: ExternalBrowserPresenterProtocol?
+    
+    var url: URL
+    
+    
+    init(url: URL) {
+        self.url = url
+    }
+    
+    func getUrl() -> URL {
+        url
+    }
+    
 }

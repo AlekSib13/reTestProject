@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol RateProductRouterProtocol {
-    func openSource(viaLink: URL)
+    func openSource(viaLink url: URL)
     func openRewardModule()
 }
 
@@ -17,9 +17,9 @@ class RateProductRouter: RateProductRouterProtocol {
     
     weak var viewController: RateProductContainerViewControllerProtocol?
     
-    func openSource(viaLink: URL) {
+    func openSource(viaLink url: URL) {
         guard let currentVC = viewController as? UIViewController else {return}
-        let nextVC = ExternalBrowserBuilder.build()
+        let nextVC = ExternalBrowserBuilder.build(url: url)
         currentVC.navigationController?.pushViewController(nextVC, animated: true)
     }
     
