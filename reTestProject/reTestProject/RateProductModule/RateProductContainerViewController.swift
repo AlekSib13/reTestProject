@@ -14,6 +14,7 @@ protocol RateProductContainerViewControllerProtocol: AnyObject {
     func showDataExceptionalSituation(situation: DataExceptionalSituation)
     func handleImageInfoApperanceState(forceHideRequired: Bool)
     func fillDescription(text: String?)
+    func updateManagementBarState(state: ProductRatingRange?)
 }
 
 class RateProductContainerViewController: BaseViewController, RateProductContainerViewControllerProtocol, ManagementBarViewDelegate, InfoTopBarViewDelegate {
@@ -120,11 +121,11 @@ class RateProductContainerViewController: BaseViewController, RateProductContain
     }
     
     func liked() {
-        assertionFailure("liked pressed")
+        presenter.rateProduct(rated: .liked)
     }
     
     func disliked() {
-        assertionFailure("disLike pressed")
+        presenter.rateProduct(rated: .disliked)
     }
     
     func skip() {
@@ -169,5 +170,9 @@ class RateProductContainerViewController: BaseViewController, RateProductContain
     
     func fillDescription(text: String?) {
         infoBar.setInfoBarText(text: text)
+    }
+    
+    func updateManagementBarState(state: ProductRatingRange?) {
+        managementBar.setStateForButtons(state: state)
     }
 }

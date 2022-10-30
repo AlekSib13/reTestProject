@@ -50,6 +50,10 @@ struct RateProductModel: AnyProductModelProtocol, Decodable {
         self.interestingInfo = interestingInfo
         self.productLink = productLink
     }
+    
+    mutating func updateRating(newRating: ProductRatingRange) {
+        productRating = newRating.rawValue
+    }
 }
 
 typealias RateProductResult = [RateProductModel]
