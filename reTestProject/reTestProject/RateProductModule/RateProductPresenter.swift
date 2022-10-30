@@ -65,6 +65,7 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
         case .backwards:
             pageVC.setViewControllers([initialVC], direction: .reverse, animated: true)
         }
+        updateManagementElements()
     }
     
     
@@ -105,6 +106,7 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
             nextIndex = nil
             if let currentIndex {
                 setItemDescription(text: interactor.getLoadedItemsList()[currentIndex].interestingInfo)
+                updateManagementElements()
             }
         }
     }
@@ -132,8 +134,14 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
     func rateProduct(rated: ProductRatingRange) {
         guard let currentIndex = currentIndex else {return}
         
-        interactor.sendProductRating(at: currentIndex, rating: rated) {result in
-            //TODO: Stopped here
+        interactor.sendProductRating(at: currentIndex, rating: rated) {[weak self] result in
+            guard let self = self else {return}
+            switch result {
+            case .success(let userScoreModel):
+                    self.updateUserRating(newScore: userScoreModel.currentScore, totalScore: userScoreModel.totalScore)
+            case .failure(_):
+                assertionFailure("smth went wrong, try latter")
+            }
         }
         
         switch rated {
@@ -151,6 +159,27 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
             }
         default:
             break
+        }
+    }
+    
+    func updateUserRating(newScore: Int, totalScore: Int) {}
+    
+    private func updateManagementElements() {
+        guard let currentIndex = currentIndex else {return}
+        let product = interactor.getLoadedItemsList()[currentIndex]
+        
+        if let rating = product.productRating {
+            switch rating {
+            case 0:
+                viewController?.updateManagementBarState(state: .disliked)
+            case 1:
+                viewController?.updateManagementBarState(state: .liked)
+            default:
+                viewController?.updateManagementBarState(state: nil)
+            }
+            
+        } else {
+            viewController?.updateManagementBarState(state: nil)
         }
     }
 }

@@ -13,7 +13,7 @@ protocol RateProductInteractorProtocol {
     func getLoadedItemsList() -> [RateProductModel]
     func getCountedLoadedItems() -> Int
     func removeData(at index: Int)
-    func sendProductRating(at index: Int, rating: ProductRatingRange, callback: @escaping (Result<UserScoreModel?, Error>) -> Void)
+    func sendProductRating(at index: Int, rating: ProductRatingRange, callback: @escaping (Result<UserScoreModel, Error>) -> Void)
 }
 
 class RateProductInteractor: RateProductInteractorProtocol {
@@ -71,8 +71,11 @@ class RateProductInteractor: RateProductInteractorProtocol {
         data.remove(at: index)
     }
     
-    func sendProductRating(at index: Int, rating: ProductRatingRange, callback: @escaping (Result<UserScoreModel?, Error>) -> Void) {
-        let product = getLoadedItemsList()[index]
+    func sendProductRating(at index: Int, rating: ProductRatingRange, callback: @escaping (Result<UserScoreModel, Error>) -> Void) {
+        var product = getLoadedItemsList()[index]
+        product.updateRating(newRating: rating)
+        updateDataElement(at: index, with: product)
+        
         let ratedProduct = ["rating": rating.rawValue]
         manager.sendProductRating(for: product.id, dict: ratedProduct) {[weak self] result in
             guard let self = self else {return}
@@ -82,7 +85,8 @@ class RateProductInteractor: RateProductInteractorProtocol {
                     self.userScore = userScore
                     callback(.success(userScore))
                 } else {
-                    callback(.success(nil))
+                    //for developer
+                    assertionFailure("nil returned")
                 }
             case .failure(let error):
                 callback(.failure(error))
@@ -94,5 +98,9 @@ class RateProductInteractor: RateProductInteractorProtocol {
                 assertionFailure(errorDescription)
             }
         }
+    }
+    
+    private func updateDataElement(at index: Int, with element: RateProductModel) {
+        data[index] = element
     }
 }
