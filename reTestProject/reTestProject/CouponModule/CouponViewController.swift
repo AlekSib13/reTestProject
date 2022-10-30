@@ -76,7 +76,7 @@ class CouponViewController: UIViewController, CouponViewControllerProtocol {
         super.viewDidLoad()
         configureView()
         setUpConstraints()
-        presenter.viewDidLoad()
+        presenter.didLoad()
     }
     
     required init?(coder: NSCoder) {

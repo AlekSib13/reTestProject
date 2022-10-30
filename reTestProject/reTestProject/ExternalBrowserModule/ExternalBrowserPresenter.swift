@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import WebKit
 
-protocol ExternalBrowserPresenterProtocol: AnyObject {}
 
-class ExternalBrowserPresenter: ExternalBrowserPresenterProtocol {
+protocol ExternalBrowserPresenterProtocol: AnyObject, WKNavigationDelegate {
+    func didLoad()
+}
+
+class ExternalBrowserPresenter: NSObject, ExternalBrowserPresenterProtocol {
     
     let interactor: ExternalBrowserInteractorProtocol
     let router: ExternalBrowserRouterProtocol
@@ -18,5 +22,14 @@ class ExternalBrowserPresenter: ExternalBrowserPresenterProtocol {
     init(interactor: ExternalBrowserInteractorProtocol, router: ExternalBrowserRouterProtocol) {
         self.interactor = interactor
         self.router = router
+    }
+    
+    func didLoad() {
+        let url = interactor.getUrl()
+        viewController?.loadUrl(url: url)
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {
+        .allow
     }
 }

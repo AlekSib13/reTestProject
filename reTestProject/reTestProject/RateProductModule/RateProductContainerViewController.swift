@@ -42,7 +42,7 @@ class RateProductContainerViewController: BaseViewController, RateProductContain
         super.viewDidLoad()
         configureView()
         setUpConstraints()
-        presenter.viewDidLoad()
+        presenter.didLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
