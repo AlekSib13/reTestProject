@@ -21,6 +21,9 @@ class RateProductManager: RateProductManagerProtocol {
         self.restService = restService
     }
     
+    //MARK: the line below is for mock usage only
+    var currentScore = 0
+    
     func getRateProducts(offset: Int, limit: Int, callback: @escaping ProductRateCallback) {
         //MARK: mock data
         let mockingData = [RateProductModel(id: 1, productName: "Apple iPhone X", productImage: "https://frankfurt.apollo.olxcdn.com/v1/files/l5mujft17b3f3-KZ/image;s=644x461", productRating: nil, interestingInfo: "The same model was giving as a gift to arab sheikh", productLink: "https://www.rebuy.de/i,10727037/handy/apple-iphone-x-64gb-silber"),
@@ -40,7 +43,9 @@ class RateProductManager: RateProductManagerProtocol {
     }
     
     func sendProductRating(for id: Int, dict: [String: Int], callback: @escaping UserScoreCallback) {
-        let userScore = UserScoreModel(currentScore: 0, totalScore: 30)
+        //MARK: mock data
+        self.currentScore += 3
+        let userScore = UserScoreModel(currentScore: self.currentScore, totalScore: 30)
         callback(.success(userScore))
         //TODO: uncomment for API requests and hide mock data
 //        restService.sendRating(id: id, dict: dict, callback: callback)

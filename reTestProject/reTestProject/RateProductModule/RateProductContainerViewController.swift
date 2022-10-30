@@ -15,6 +15,7 @@ protocol RateProductContainerViewControllerProtocol: AnyObject {
     func handleImageInfoApperanceState(forceHideRequired: Bool)
     func fillDescription(text: String?)
     func updateManagementBarState(state: ProductRatingRange?)
+    func updateSliderBarState(currentValue: Float, maxVlue: Float)
 }
 
 class RateProductContainerViewController: BaseViewController, RateProductContainerViewControllerProtocol, ManagementBarViewDelegate, InfoTopBarViewDelegate {
@@ -24,7 +25,7 @@ class RateProductContainerViewController: BaseViewController, RateProductContain
     let pageViewController: RateProductPageViewControllerProtocol = RateProductPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     lazy var managementBar: ManagementBarViewProtocol = ManagementBarView(delegate: self)
     lazy var infoBar: InfoTopBarViewProtocol = InfoTopBarView(delegate: self)
-    lazy var slider: SliderBarProtocol = ProgressBarSlider()
+    lazy var sliderBar: SliderBarProtocol = ProgressBarSlider()
     
     
     init(presenter: RateProductPresenterProtocol) {
@@ -58,7 +59,7 @@ class RateProductContainerViewController: BaseViewController, RateProductContain
         
         view.addSubview(managementBar)
         view.addSubview(infoBar)
-        view.addSubview(slider)
+        view.addSubview(sliderBar)
         
         infoBar.isHidden = true
         
@@ -92,7 +93,7 @@ class RateProductContainerViewController: BaseViewController, RateProductContain
             make.height.equalTo(view.safeAreaInsets.top + GeneralConstants.Size.sizeOf50)
         }
         
-        slider.snp.makeConstraints {make in
+        sliderBar.snp.makeConstraints {make in
             make.bottom.equalTo(managementBar.snp.top).inset(GeneralConstants.Spacing.offsetOf5)
             make.left.right.equalToSuperview().inset(GeneralConstants.Spacing.offsetOf5)
             make.height.equalTo(GeneralConstants.Size.sizeOf40)
@@ -174,5 +175,9 @@ class RateProductContainerViewController: BaseViewController, RateProductContain
     
     func updateManagementBarState(state: ProductRatingRange?) {
         managementBar.setStateForButtons(state: state)
+    }
+    
+    func updateSliderBarState(currentValue: Float, maxVlue: Float) {
+        sliderBar.setSliderValues(currentValue: currentValue, maxValue: maxVlue)
     }
 }
