@@ -6,13 +6,23 @@
 //
 
 import Foundation
+import UIKit
+import WebKit
+import SnapKit
 
-
-protocol ExternalBrowserViewControllerProtocol: AnyObject {}
+protocol ExternalBrowserViewControllerProtocol: AnyObject {
+    func loadUrl(url: URL)
+}
 
 class ExternalBrowserViewController: BaseViewController, ExternalBrowserViewControllerProtocol {
     
     let presenter: ExternalBrowserPresenterProtocol
+    
+    let webView: WKWebView = {
+        let view = WKWebView()
+        view.backgroundColor = .white
+        return view
+    }()
     
     init(presenter: ExternalBrowserPresenterProtocol) {
         self.presenter = presenter
@@ -25,7 +35,9 @@ class ExternalBrowserViewController: BaseViewController, ExternalBrowserViewCont
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        configureView()
+        setUpConstraints()
+        presenter.didLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,5 +48,22 @@ class ExternalBrowserViewController: BaseViewController, ExternalBrowserViewCont
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    private func configureView() {
+        view.backgroundColor = .white
+        view.addSubview(webView)
+        webView.navigationDelegate = presenter
+    }
+    
+    private func setUpConstraints() {
+        webView.snp.makeConstraints {make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    func loadUrl(url: URL) {
+        let request = URLRequest(url: url)
+        webView.load(request)
     }
 }
