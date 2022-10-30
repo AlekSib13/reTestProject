@@ -8,9 +8,15 @@
 import Foundation
 
 
-protocol CouponRouterProtocol {}
+protocol CouponRouterProtocol {
+    func openExternalSource(with: URL)
+}
 
 class CouponRouter: CouponRouterProtocol {
     
     weak var viewController: CouponViewControllerProtocol?
+    
+    func openExternalSource(with: URL) {
+        assertionFailure("openExternalSource")
+    }
 }
