@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol RateProductPresenterProtocol: AnyObject, RateProductPageViewControllerDelegate, RateProductViewControllerDelegate {
-    func viewDidLoad()
+    func didLoad()
     func openExternalInfoSource()
     func rateProduct(rated: ProductRatingRange)
     func showReward()
@@ -34,7 +34,7 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
         self.router = router
     }
     
-    func viewDidLoad() {
+    func didLoad() {
         makeInitialDataRequest()
     }
     

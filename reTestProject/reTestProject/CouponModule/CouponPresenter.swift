@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol CouponPresenterProtocol: AnyObject {
-    func viewDidLoad()
+    func didLoad()
     func transitionToExternalSource()
 }
 
@@ -26,7 +26,7 @@ class CouponPresenter: CouponPresenterProtocol {
         self.router = router
     }
     
-    func viewDidLoad() {
+    func didLoad() {
         makeDataRequest()
     }
     

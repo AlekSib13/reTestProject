@@ -9,10 +9,14 @@ import Foundation
 import UIKit
 
 class BaseNavigationController: UINavigationController {
-    override var preferredStatusBarStyle: UIStatusBarStyle {.lightContent}
+    override var preferredStatusBarStyle: UIStatusBarStyle {.darkContent}
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        navigationBar.standardAppearance = appearance
+        navigationBar.scrollEdgeAppearance = appearance
         navigationBar.tintColor = .black
     }
 }
