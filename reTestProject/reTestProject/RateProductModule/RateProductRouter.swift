@@ -10,6 +10,7 @@ import UIKit
 
 protocol RateProductRouterProtocol {
     func openSource(viaLink: URL)
+    func openRewardModule()
 }
 
 class RateProductRouter: RateProductRouterProtocol {
@@ -20,5 +21,11 @@ class RateProductRouter: RateProductRouterProtocol {
         guard let currentVC = viewController as? UIViewController else {return}
         let nextVC = ExternalBrowserBuilder.build()
         currentVC.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    func openRewardModule() {
+        let vc = CouponBuilder.build()
+        guard let currentVC = viewController as? UIViewController else {return}
+        currentVC.present(vc, animated: true)
     }
 }

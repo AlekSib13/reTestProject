@@ -36,7 +36,7 @@ class InfoTopBarView: UIView, InfoTopBarViewProtocol {
     }()
     
     let descriptionLabel: UILabel = {
-        let label = BaseUILabel()
+        let label = BaseUILabel(topInset: .zero, bottomInset: .zero, leftInset: GeneralConstants.Spacing.offsetOf5, rightInset: GeneralConstants.Spacing.offsetOf5)
         label.font = UIFont.systemFont(ofSize: GeneralConstants.Size.sizeOf15, weight: .regular)
         label.tintColor = UIColor.BaseColours.baseGray
         label.lineBreakMode = .byTruncatingTail

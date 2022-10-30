@@ -8,6 +8,13 @@
 import Foundation
 
 
-protocol CouponProtocol {}
+protocol CouponProtocol {
+    func getCoupon(callback: @escaping CouponCallback)
+}
 
-extension RestAPIService: CouponProtocol {}
+extension RestAPIService: CouponProtocol {
+    func getCoupon(callback: @escaping CouponCallback) {
+        let url = baseRestURL.appending(path: "/reward")
+        return makeDecodableRequestForData(url: url, callback: callback)
+    }
+}

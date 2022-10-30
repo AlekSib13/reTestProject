@@ -189,6 +189,6 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
     }
     
     func showReward() {
-        assertionFailure("rewarded")
+        router.openRewardModule()
     }
 }
