@@ -10,7 +10,9 @@ import UIKit
 import SnapKit
 
 
-protocol ManagementBarViewProtocol where Self: UIView{}
+protocol ManagementBarViewProtocol where Self: UIView{
+    func setStateForButtons(state: ProductRatingRange?)
+}
 
 protocol ManagementBarViewDelegate {
     func liked()
@@ -20,6 +22,7 @@ protocol ManagementBarViewDelegate {
 
 
 class ManagementBarView: UIView, ManagementBarViewProtocol {
+    
     
     let hBarStack: UIStackView = {
         let stack = UIStackView()
@@ -32,14 +35,16 @@ class ManagementBarView: UIView, ManagementBarViewProtocol {
     
     let likeButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage.Buttons.likeButton, for: .normal)
+        button.setImage(UIImage.Buttons.likeButton?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.imageView?.tintColor = UIColor.BaseColours.baseGray
         button.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         return button
     }()
     
     let dislikeButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage.Buttons.dislikeButton, for: .normal)
+        button.setImage(UIImage.Buttons.dislikeButton?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.imageView?.tintColor = UIColor.BaseColours.baseGray
         button.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         return button
     }()
@@ -90,14 +95,49 @@ class ManagementBarView: UIView, ManagementBarViewProtocol {
     }
     
     @objc private func likeTapped() {
+        changeButtonColour(button: dislikeButton, newColour: UIColor.BaseColours.baseGray)
+        animateActionButton(button: likeButton)
         delegate.liked()
+        
     }
     
     @objc private func dislikeTapped() {
+        changeButtonColour(button: likeButton, newColour: UIColor.BaseColours.baseGray)
+        animateActionButton(button: dislikeButton)
         delegate.disliked()
     }
     
     @objc private func skipTapped() {
         delegate.skip()
+    }
+    
+    private func animateActionButton<T: UIButton>(button: T) {
+        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.1, initialSpringVelocity: 0.0, options: .curveLinear) {
+            button.center.y += 1
+        } completion: {[weak self] completed in
+            if completed {
+                guard let self = self else {return}
+                self.changeButtonColour(button: button, newColour: UIColor.BaseColours.persiaGreen)
+                button.center.y -= 1
+            }
+        }
+    }
+    
+    func setStateForButtons(state: ProductRatingRange?) {
+        switch state {
+        case .liked:
+            changeButtonColour(button: likeButton, newColour: UIColor.BaseColours.persiaGreen)
+            changeButtonColour(button: dislikeButton, newColour: UIColor.BaseColours.baseGray)
+        case .disliked:
+            changeButtonColour(button: dislikeButton, newColour: UIColor.BaseColours.persiaGreen)
+            changeButtonColour(button: likeButton, newColour: UIColor.BaseColours.baseGray)
+        default:
+            changeButtonColour(button: dislikeButton, newColour: UIColor.BaseColours.baseGray)
+            changeButtonColour(button: likeButton, newColour: UIColor.BaseColours.baseGray)
+        }
+    }
+    
+    private func changeButtonColour<T: UIButton>(button: T, newColour: UIColor) {
+        button.imageView?.tintColor = newColour
     }
 }
