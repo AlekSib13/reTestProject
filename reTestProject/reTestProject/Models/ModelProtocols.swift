@@ -13,3 +13,8 @@ protocol AnyProductModelProtocol {
     var productName: String {get}
     var productImage: String {get}
 }
+
+protocol AnyRewardProtocol {
+    var code: String {get}
+    var sourceUrl: String? {get}
+}
