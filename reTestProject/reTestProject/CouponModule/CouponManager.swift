@@ -7,7 +7,9 @@
 
 import Foundation
 
-protocol CouponManagerProtocol {}
+protocol CouponManagerProtocol {
+    func getCoupon(callback: @escaping CouponCallback)
+}
 
 class CouponManager: CouponManagerProtocol {
     
@@ -15,5 +17,13 @@ class CouponManager: CouponManagerProtocol {
     
     init(restService: CouponProtocol) {
         self.restService = restService
+    }
+    
+    func getCoupon(callback: @escaping CouponCallback) {
+        //MARK: mock data
+        let data = CouponModel(code: "Ab1721a", sourceUrl: "https://www.google.com/")
+        callback(.success(data))
+        //TODO: uncomment for API requests and hide mock data
+//        restService.getCoupon(callback: callback)
     }
 }

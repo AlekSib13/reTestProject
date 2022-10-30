@@ -25,4 +25,9 @@ extension UIImage {
         static let nothingToEvaluate = { UIImage(named: "nothingToEvaluate") }()
         static let noData = { UIImage(named: "noData") }()
     }
+    
+    struct Coupon {
+        static let coupon = { UIImage(named: "reward") }()
+        static let externalSourceButton = { UIImage(named: "rHome") }()
+    }
 }

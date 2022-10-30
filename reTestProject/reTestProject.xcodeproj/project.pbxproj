@@ -62,7 +62,9 @@
 		EBBA9A652909445B0023B4F0 /* BaseURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA9A642909445B0023B4F0 /* BaseURLs.swift */; };
 		EBBA9A6729094F910023B4F0 /* GeneralConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBA9A6629094F910023B4F0 /* GeneralConstants.swift */; };
 		EBDA7CF8290D003E00677404 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDA7CF7290D003E00677404 /* BaseNavigationController.swift */; };
+		EBE430A1290E9556005C6BDC /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE430A0290E9556005C6BDC /* Strings.swift */; };
 		EBEC9623290BF0250095B790 /* ProgressBarSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEC9622290BF0250095B790 /* ProgressBarSlider.swift */; };
+		EBF8A13C290E858500649B15 /* CouponModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF8A13B290E858500649B15 /* CouponModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,7 +148,9 @@
 		EBBA9A642909445B0023B4F0 /* BaseURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURLs.swift; sourceTree = "<group>"; };
 		EBBA9A6629094F910023B4F0 /* GeneralConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralConstants.swift; sourceTree = "<group>"; };
 		EBDA7CF7290D003E00677404 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		EBE430A0290E9556005C6BDC /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		EBEC9622290BF0250095B790 /* ProgressBarSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarSlider.swift; sourceTree = "<group>"; };
+		EBF8A13B290E858500649B15 /* CouponModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponModel.swift; sourceTree = "<group>"; };
 		F449D7C3BA39ADE28A9040A1 /* Pods-reTestProject-reTestProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reTestProject-reTestProjectUITests.release.xcconfig"; path = "Target Support Files/Pods-reTestProject-reTestProjectUITests/Pods-reTestProject-reTestProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F75A3D52FE3018FAA982BEE5 /* Pods_reTestProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reTestProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -216,6 +220,7 @@
 			children = (
 				EB25DCE029086E3F00BD5E70 /* RateProductModel.swift */,
 				EB3FBC4F290D979100DDD666 /* UserScoreModel.swift */,
+				EBF8A13B290E858500649B15 /* CouponModel.swift */,
 			);
 			path = RateProduct;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				EBBA9A642909445B0023B4F0 /* BaseURLs.swift */,
 				EBBA9A6629094F910023B4F0 /* GeneralConstants.swift */,
 				EB75D58B290B9FF600138069 /* Images.swift */,
+				EBE430A0290E9556005C6BDC /* Strings.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -651,6 +657,7 @@
 				EBAD9E40290734C60062F005 /* CouponPresenter.swift in Sources */,
 				EBBA9A6729094F910023B4F0 /* GeneralConstants.swift in Sources */,
 				EB721193290815D200FD7B33 /* LaunchModuleManager.swift in Sources */,
+				EBF8A13C290E858500649B15 /* CouponModel.swift in Sources */,
 				EB75B466290731C800F222FF /* ViewController.swift in Sources */,
 				EBAD9E2C290733A70062F005 /* LaunchModuleInteractor.swift in Sources */,
 				EBBA9A652909445B0023B4F0 /* BaseURLs.swift in Sources */,
@@ -660,6 +667,7 @@
 				EB75D590290BCDBA00138069 /* BaseUILabel.swift in Sources */,
 				EB75B462290731C800F222FF /* AppDelegate.swift in Sources */,
 				EB25DCE329086EFF00BD5E70 /* ModelProtocols.swift in Sources */,
+				EBE430A1290E9556005C6BDC /* Strings.swift in Sources */,
 				EBAD9E282907338E0062F005 /* LaunchModuleViewController.swift in Sources */,
 				EBAD9E30290733B90062F005 /* LaunchModuleBuilder.swift in Sources */,
 				EBAD9E46290734E70062F005 /* CouponBuilder.swift in Sources */,
