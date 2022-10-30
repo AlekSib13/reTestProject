@@ -12,6 +12,7 @@ protocol RateProductPresenterProtocol: AnyObject, RateProductPageViewControllerD
     func viewDidLoad()
     func openExternalInfoSource()
     func rateProduct(rated: ProductRatingRange)
+    func showReward()
 }
 
 class RateProductPresenter: NSObject, RateProductPresenterProtocol {
@@ -138,7 +139,9 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
             guard let self = self else {return}
             switch result {
             case .success(let userScoreModel):
+                if rated != .skipped {
                     self.updateUserRating(newScore: userScoreModel.currentScore, totalScore: userScoreModel.totalScore)
+                }
             case .failure(_):
                 assertionFailure("smth went wrong, try latter")
             }
@@ -162,7 +165,9 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
         }
     }
     
-    func updateUserRating(newScore: Int, totalScore: Int) {}
+    func updateUserRating(newScore: Int, totalScore: Int) {
+        viewController?.updateSliderBarState(currentValue: Float(newScore), maxVlue: Float(totalScore))
+    }
     
     private func updateManagementElements() {
         guard let currentIndex = currentIndex else {return}
@@ -181,5 +186,9 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
         } else {
             viewController?.updateManagementBarState(state: nil)
         }
+    }
+    
+    func showReward() {
+        assertionFailure("rewarded")
     }
 }
