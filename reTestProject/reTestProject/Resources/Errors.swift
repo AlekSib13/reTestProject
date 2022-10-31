@@ -10,10 +10,13 @@ import Foundation
 
 struct BaseErrors: Error {
     enum ErrorType {
-        case serverError
+        case errorFromServer
         case decodingError
         case none
         case encodingError
+        case noToken
+        case noUserData
+        case serverAccessDenied
     }
     
     let errorType: ErrorType
