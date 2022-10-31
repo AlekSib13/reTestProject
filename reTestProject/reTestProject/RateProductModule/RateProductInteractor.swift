@@ -41,6 +41,7 @@ class RateProductInteractor: RateProductInteractorProtocol {
     
     init(manager: RateProductManagerProtocol) {
         self.manager = manager
+        //the initial userscore should be retrieved from db, since we received it during the entrance to the app
     }
     
     func getProductsData(offset: Int, limit: Int, callback: @escaping (Result<[RateProductModel]?, Error>) -> Void)  {

@@ -20,5 +20,8 @@ struct DefaultStrings {
         static let create = "create"
         static let invent = "invent"
         static let live = "live"
+        static let placeholderTextLogin = "Login"
+        static let placeholderTextParrword = "Password"
+        static let enter = "Go"
     }
 }
