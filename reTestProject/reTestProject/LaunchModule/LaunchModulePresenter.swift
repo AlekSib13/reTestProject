@@ -16,7 +16,9 @@ enum LogoState: Int {
 
 protocol LaunchModulePresenterProtocol: AnyObject {
     func getText(for state: LogoState) -> NSMutableAttributedString
+    func loginWithCredentials(login: String, password: String)
     func showProductRateModule()
+    func didLoad()
 }
 
 class LaunchModulePresenter: LaunchModulePresenterProtocol {
@@ -52,4 +54,34 @@ class LaunchModulePresenter: LaunchModulePresenterProtocol {
     func showProductRateModule() {
         router.openProductRateModule()
     }
+    
+    func didLoad() {
+        makeLogin()
+    }
+    
+    func loginWithCredentials(login: String, password: String) {
+        makeLogin(login: login, password: password)
+    }
+    
+    private func makeLogin(login: String? = nil, password: String? = nil) {
+        interactor.getAccess(login: login, password: password) {[weak self] result in
+            guard let self = self else {return}
+            switch result {
+            case .success(let result):
+                if result {
+                    self.router.openProductRateModule()
+                } else {
+                    self.viewController?.showLoginAndPassword()
+                }
+            case .failure(let error):
+                if let authError = error as? BaseErrors, authError.errorType == .serverAccessDenied {
+                    self.viewController?.showAccessDeniedView()
+                } else {
+                    self.viewController?.showSmthWentWrongView()
+                }
+            }
+        }
+    }
+    
+   
 }

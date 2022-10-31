@@ -8,6 +8,10 @@
 import Foundation
 import Alamofire
 
+enum APIStatusCode: Int {
+    case unAuthorizedError = 401
+}
+
 protocol RestAPIServiceProtocol {
     func makeDecodableRequestForData<T: Decodable>(url: URL, method: HTTPMethod, params: Parameters?, httpBody: Data?, callback: @escaping DecodableCallback<T>)
     func getHeaders() -> HTTPHeaders
@@ -21,15 +25,16 @@ class RestAPIService: RestAPIServiceProtocol {
     let decodingQueue = DispatchQueue(label: "decodingQueue", qos: .background, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
     
     var defaultHeaders: HTTPHeaders {
-        let headers: HTTPHeaders = ["platform": "iOS", "timezone": "\(String(TimeZone.current.secondsFromGMT() / 3600))"]
+        var headers: HTTPHeaders = ["platform": "iOS", "timezone": "\(String(TimeZone.current.secondsFromGMT() / 3600))"]
         return headers
     }
     
     let baseRestURL = BaseURL.baseUrl.url!
     
     func getHeaders() -> HTTPHeaders {
-        //add token
-        return defaultHeaders
+        var headers = defaultHeaders
+        headers.add(name: "token", value:  UserDefaults.standard.string(forKey: AppKeys.UserDefaultKeys.token) ?? "")
+        return headers
     }
     
     
@@ -45,6 +50,11 @@ class RestAPIService: RestAPIServiceProtocol {
         
         AF.request(request).validate().response(queue: decodingQueue) {[weak self] response in
             guard let self = self else {return}
+            if response.response?.statusCode == APIStatusCode.unAuthorizedError.rawValue {
+                let error = BaseErrors(errorType: .serverAccessDenied, errorTitle: "Unauthorized error", descritpion: nil)
+                callback(.failure(error))
+                return
+            }
             switch response.result {
             case .success(let data):
                 if let data {
@@ -55,7 +65,7 @@ class RestAPIService: RestAPIServiceProtocol {
                     }
                 }
             case .failure(let error):
-                let serverError = BaseErrors(errorType: .serverError, errorTitle: error.localizedDescription, descritpion: nil)
+                let serverError = BaseErrors(errorType: .errorFromServer, errorTitle: error.localizedDescription, descritpion: nil)
                 DispatchQueue.main.async {
                     callback(.failure(serverError))
                 }

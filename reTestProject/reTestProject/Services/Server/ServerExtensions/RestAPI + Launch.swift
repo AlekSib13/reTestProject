@@ -6,7 +6,23 @@
 //
 
 import Foundation
+import Alamofire
 
-protocol RestLaunchProtocol {}
+protocol RestLaunchProtocol {
+    func getUserData(callback: @escaping UserScoreCallback)
+    func getToken(login: String, password: String, callback: @escaping DictStringCallback)
+}
 
-extension RestAPIService: RestLaunchProtocol {}
+extension RestAPIService: RestLaunchProtocol {
+    func getUserData(callback: @escaping UserScoreCallback) {
+        let url = baseRestURL.appending(path: "/user")
+        return makeDecodableRequestForData(url: url, callback: callback)
+    }
+    
+    
+    func getToken(login: String, password: String, callback: @escaping DictStringCallback) {
+        let url = baseRestURL.appending(path: "/token")
+        let params: Parameters = ["login": login, "password": password]
+        return makeDecodableRequestForData(url: url, callback: callback)
+    }
+}
