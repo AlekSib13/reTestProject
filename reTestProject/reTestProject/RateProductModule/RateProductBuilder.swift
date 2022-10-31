@@ -20,6 +20,7 @@ class RateProductBuilder {
         presenter.viewController = viewController
         router.viewController = viewController
         
+        
         return viewController
     }
 }
