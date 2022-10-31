@@ -6,10 +6,18 @@
 //
 
 import Foundation
+import UIKit
 
-protocol LaunchModuleRouterProtocol {}
+protocol LaunchModuleRouterProtocol {
+    func openProductRateModule()
+}
 
 class LaunchModuleRouter: LaunchModuleRouterProtocol {
     
     weak var viewController: LaunchModuleViewControllerProtocol?
+    
+    func openProductRateModule() {
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as! SceneDelegate
+        sceneDelegate.updateRootViewController()
+    }
 }

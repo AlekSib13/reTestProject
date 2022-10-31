@@ -18,9 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let appMainScene = (scene as? UIWindowScene) else { return }
         let appMainWindow = UIWindow(windowScene: appMainScene)
-        
-        appMainWindow.rootViewController = setLaunchModule()
         window = appMainWindow
+        appMainWindow.rootViewController = setLaunchModule()
         window?.makeKeyAndVisible()
     }
 
@@ -57,8 +56,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
     
     private func setLaunchModule() -> UIViewController {
-        let initialVC = RateProductBuilder.build()
-        let nvc = BaseNavigationController(rootViewController: initialVC)
-        return nvc
+        let initialVC = LaunchModuleBuilder.build()
+        return initialVC
+    }
+    
+    func updateRootViewController(){
+        let mainModule = RateProductBuilder.build()
+        let nvc = BaseNavigationController(rootViewController: mainModule)
+        window?.rootViewController = nvc
     }
 }
