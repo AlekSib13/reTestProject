@@ -30,4 +30,14 @@ extension UIImage {
         static let coupon = { UIImage(named: "reward") }()
         static let externalSourceButton = { UIImage(named: "rHome") }()
     }
+    
+    struct Logo {
+        static let defaultMainLogo = { UIImage(named: "defaultMainLogo") }()
+    }
+    
+    struct Other {
+        static let idea = { UIImage(named: "idea") }()
+        static let create = { UIImage(named: "create") }()
+        static let world = { UIImage(named: "world") }()
+    }
 }

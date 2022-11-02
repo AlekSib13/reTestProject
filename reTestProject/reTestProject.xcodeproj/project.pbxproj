@@ -16,6 +16,7 @@
 		EB25DCDD2908678000BD5E70 /* RateProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25DCDC2908678000BD5E70 /* RateProductViewController.swift */; };
 		EB25DCE129086E3F00BD5E70 /* RateProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25DCE029086E3F00BD5E70 /* RateProductModel.swift */; };
 		EB25DCE329086EFF00BD5E70 /* ModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25DCE229086EFF00BD5E70 /* ModelProtocols.swift */; };
+		EB34FA46291052CE0071B6A8 /* AppKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34FA45291052CE0071B6A8 /* AppKeys.swift */; };
 		EB3FBC50290D979100DDD666 /* UserScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3FBC4F290D979100DDD666 /* UserScoreModel.swift */; };
 		EB7211912908121D00FD7B33 /* RestAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7211902908121D00FD7B33 /* RestAPIService.swift */; };
 		EB721193290815D200FD7B33 /* LaunchModuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB721192290815D200FD7B33 /* LaunchModuleManager.swift */; };
@@ -101,6 +102,7 @@
 		EB25DCDC2908678000BD5E70 /* RateProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProductViewController.swift; sourceTree = "<group>"; };
 		EB25DCE029086E3F00BD5E70 /* RateProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProductModel.swift; sourceTree = "<group>"; };
 		EB25DCE229086EFF00BD5E70 /* ModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProtocols.swift; sourceTree = "<group>"; };
+		EB34FA45291052CE0071B6A8 /* AppKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKeys.swift; sourceTree = "<group>"; };
 		EB3FBC4F290D979100DDD666 /* UserScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScoreModel.swift; sourceTree = "<group>"; };
 		EB7211902908121D00FD7B33 /* RestAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAPIService.swift; sourceTree = "<group>"; };
 		EB721192290815D200FD7B33 /* LaunchModuleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModuleManager.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				EBBA9A6629094F910023B4F0 /* GeneralConstants.swift */,
 				EB75D58B290B9FF600138069 /* Images.swift */,
 				EBE430A0290E9556005C6BDC /* Strings.swift */,
+				EB34FA45291052CE0071B6A8 /* AppKeys.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -678,6 +681,7 @@
 				EB72119B29081D8E00FD7B33 /* RateProductManager.swift in Sources */,
 				EBBA9A6129092A820023B4F0 /* CallBacks.swift in Sources */,
 				EBAD9E49290735160062F005 /* ExternalBrowserViewController.swift in Sources */,
+				EB34FA46291052CE0071B6A8 /* AppKeys.swift in Sources */,
 				EBAD9E44290734D90062F005 /* CouponRouter.swift in Sources */,
 				EBAD9E40290734C60062F005 /* CouponPresenter.swift in Sources */,
 				EBBA9A6729094F910023B4F0 /* GeneralConstants.swift in Sources */,
