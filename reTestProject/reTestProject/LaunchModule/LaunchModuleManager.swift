@@ -12,6 +12,7 @@ protocol LaunchModuleManagerProtocol {}
 class LaunchModuleManager: LaunchModuleManagerProtocol {
     
     let restService: RestLaunchProtocol
+    let dbManager: 
     
     init(restService: RestLaunchProtocol) {
         self.restService = restService

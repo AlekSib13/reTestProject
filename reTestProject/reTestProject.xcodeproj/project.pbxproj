@@ -10,6 +10,9 @@
 		72D1A70EEC0EA0E2EDCA5A8D /* Pods_reTestProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75A3D52FE3018FAA982BEE5 /* Pods_reTestProject.framework */; };
 		75B5FBEC9DDAB2B5430447A6 /* Pods_reTestProject_reTestProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE800A3BA588694DAAE69AE4 /* Pods_reTestProject_reTestProjectUITests.framework */; };
 		DD35BFCD7AF7AC29A196C5A7 /* Pods_reTestProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD4CF76CECFDA4EF6983262 /* Pods_reTestProjectTests.framework */; };
+		EB0D35EE291301FE0009118C /* RealmDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0D35ED291301FE0009118C /* RealmDBManager.swift */; };
+		EB0D35F129130F6F0009118C /* RmUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0D35F029130F6F0009118C /* RmUserData.swift */; };
+		EB0D35F529131EDC0009118C /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0D35F429131EDC0009118C /* UserDataManager.swift */; };
 		EB25DCDD2908678000BD5E70 /* RateProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25DCDC2908678000BD5E70 /* RateProductViewController.swift */; };
 		EB25DCE129086E3F00BD5E70 /* RateProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25DCE029086E3F00BD5E70 /* RateProductModel.swift */; };
 		EB25DCE329086EFF00BD5E70 /* ModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB25DCE229086EFF00BD5E70 /* ModelProtocols.swift */; };
@@ -92,6 +95,9 @@
 		C14A98BFAEEE3BBA4B36829B /* Pods-reTestProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reTestProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-reTestProjectTests/Pods-reTestProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE800A3BA588694DAAE69AE4 /* Pods_reTestProject_reTestProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reTestProject_reTestProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD4CF76CECFDA4EF6983262 /* Pods_reTestProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reTestProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB0D35ED291301FE0009118C /* RealmDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBManager.swift; sourceTree = "<group>"; };
+		EB0D35F029130F6F0009118C /* RmUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RmUserData.swift; sourceTree = "<group>"; };
+		EB0D35F429131EDC0009118C /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 		EB25DCDC2908678000BD5E70 /* RateProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProductViewController.swift; sourceTree = "<group>"; };
 		EB25DCE029086E3F00BD5E70 /* RateProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProductModel.swift; sourceTree = "<group>"; };
 		EB25DCE229086EFF00BD5E70 /* ModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProtocols.swift; sourceTree = "<group>"; };
@@ -206,6 +212,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		EB0D35EC291301E80009118C /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				EB0D35EF29130F5E0009118C /* DBModels */,
+				EB0D35ED291301FE0009118C /* RealmDBManager.swift */,
+				EB0D35F429131EDC0009118C /* UserDataManager.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		EB0D35EF29130F5E0009118C /* DBModels */ = {
+			isa = PBXGroup;
+			children = (
+				EB0D35F029130F6F0009118C /* RmUserData.swift */,
+			);
+			path = DBModels;
+			sourceTree = "<group>";
+		};
 		EB25DCDE29086E2200BD5E70 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +252,7 @@
 		EB72118E290811FE00FD7B33 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				EB0D35EC291301E80009118C /* DB */,
 				EB72118F2908120700FD7B33 /* Server */,
 			);
 			path = Services;
@@ -660,9 +685,11 @@
 				EBF8A13C290E858500649B15 /* CouponModel.swift in Sources */,
 				EB75B466290731C800F222FF /* ViewController.swift in Sources */,
 				EBAD9E2C290733A70062F005 /* LaunchModuleInteractor.swift in Sources */,
+				EB0D35F529131EDC0009118C /* UserDataManager.swift in Sources */,
 				EBBA9A652909445B0023B4F0 /* BaseURLs.swift in Sources */,
 				EBEC9623290BF0250095B790 /* ProgressBarSlider.swift in Sources */,
 				EB7211A52908265200FD7B33 /* Colours.swift in Sources */,
+				EB0D35F129130F6F0009118C /* RmUserData.swift in Sources */,
 				EB7211A1290821ED00FD7B33 /* RestAPI + Coupon.swift in Sources */,
 				EB75D590290BCDBA00138069 /* BaseUILabel.swift in Sources */,
 				EB75B462290731C800F222FF /* AppDelegate.swift in Sources */,
@@ -681,6 +708,7 @@
 				EB89C82F290AEAA0005B934A /* ManagementBarView.swift in Sources */,
 				EBBA9A63290939050023B4F0 /* Errors.swift in Sources */,
 				EBAD9E2A2907339C0062F005 /* LaunchModulePresenter.swift in Sources */,
+				EB0D35EE291301FE0009118C /* RealmDBManager.swift in Sources */,
 				EB75D58E290BAD5000138069 /* TopInfoBarView.swift in Sources */,
 				EBAD9E51290735420062F005 /* ExternalBrowserBuilder.swift in Sources */,
 				EBB9C8C8290AD256001D0BBF /* RateProductContainerViewController.swift in Sources */,

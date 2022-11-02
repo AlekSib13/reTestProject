@@ -14,6 +14,9 @@ struct BaseErrors: Error {
         case decodingError
         case none
         case encodingError
+        case realmInitialSetting
+        case realmWritingError
+        case noDataInDB
     }
     
     let errorType: ErrorType

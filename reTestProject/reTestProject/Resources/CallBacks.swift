@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 typealias DecodableCallback<T: Decodable> = (Result<T?,Error>) -> Void
 typealias ProductRateCallback = (Result<RateProductResult?, Error>) -> Void
