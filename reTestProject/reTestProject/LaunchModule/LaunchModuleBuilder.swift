@@ -12,7 +12,7 @@ class LaunchModuleBuilder {
     
     static func build() -> UIViewController {
         let router = LaunchModuleRouter()
-        let interactor = LaunchModuleInteractor(manager: LaunchModuleManager(restService: RestAPIService.shared))
+        let interactor = LaunchModuleInteractor(manager: LaunchModuleManager(restService: RestAPIService.shared, dbManager: RealmDBManager.shared))
         let presenter = LaunchModulePresenter(interactor: interactor, router: router)
         let viewController = LaunchModuleViewController(presenter: presenter)
         

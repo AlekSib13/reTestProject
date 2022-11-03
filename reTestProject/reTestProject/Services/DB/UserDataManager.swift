@@ -20,11 +20,11 @@ extension RealmDBManager: UserDataManagerProtocol {
     
     
     func readUserScoreFromDB(id: String, callback: @escaping (Result<UserScoreModel, Error>) -> Void) {
-        readUserScoreRmModelFromDB(id: id) {dbObject in
-            if let dbObject {
+        readUserScoreRmModelFromDB(id: id) {result in
+            switch result {
+            case .success(let dbObject):
                 callback(.success(dbObject.toDataModel()))
-            } else {
-                let error = BaseErrors(errorType: .noDataInDB, errorTitle: "There is no UserScore data in db", descritpion: nil)
+            case .failure(let error):
                 callback(.failure(error))
             }
         }

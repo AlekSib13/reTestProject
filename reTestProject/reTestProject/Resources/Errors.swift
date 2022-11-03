@@ -18,8 +18,9 @@ struct BaseErrors: Error {
         case realmWritingError
         case noDataInDB
         case noToken
-        case noUserData
+        case noUserDataFromServer
         case serverAccessDenied
+        case dbThreadSafeError
     }
     
     let errorType: ErrorType

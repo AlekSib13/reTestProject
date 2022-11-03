@@ -16,7 +16,7 @@ extension BaseRealm {
 protocol RealmDBManagerProtocol: AnyObject {}
 protocol BasicRealmManagerProtocol {
     func writeUserScoreRmModelToDB(id: String, data: RmUserScoreData, callback: @escaping (Result<Bool, Error>) -> Void)
-    func readUserScoreRmModelFromDB(id: String, callback: @escaping (RmUserScoreData?) -> Void)
+    func readUserScoreRmModelFromDB(id: String, callback: @escaping (Result<RmUserScoreData, Error>) -> Void)
 }
 
 class RealmDBManager: RealmDBManagerProtocol {
@@ -40,6 +40,7 @@ class RealmDBManager: RealmDBManagerProtocol {
 }
 
 extension RealmDBManager: BaseRealm, BasicRealmManagerProtocol {
+    
     func writeUserScoreRmModelToDB(id: String, data: RmUserScoreData, callback: @escaping (Result<Bool, Error>) -> Void) {
         DispatchQueue.global(qos: .background).async {[weak self] in
             guard let self = self else {return}
@@ -60,17 +61,26 @@ extension RealmDBManager: BaseRealm, BasicRealmManagerProtocol {
         }
     }
 
-    func readUserScoreRmModelFromDB(id: String, callback: @escaping (RmUserScoreData?) -> Void) {
+    func readUserScoreRmModelFromDB(id: String, callback: @escaping (Result<RmUserScoreData, Error>) -> Void) {
         DispatchQueue.global(qos: .background).async {[weak self] in
             guard let self = self else {return}
             let realmObject = self.realmDB.objects(RmUserScoreData.self).where {$0.id == id}.first
             if let realmObject {
+                let realmObjectSafe = ThreadSafeReference(to: realmObject)
                 DispatchQueue.main.async {
-                    callback(realmObject)
+                    let realm = try! Realm()
+                    if let realmObjectResolved = realm.resolve(realmObjectSafe) {
+                        callback(.success(realmObjectResolved))
+                    } else {
+                        let error = BaseErrors(errorType: .dbThreadSafeError, errorTitle: "Could not resolve threadsafe object", descritpion: nil)
+                        assertionFailure(error.errorTitle)
+                    }
                 }
             } else {
+                let error = BaseErrors(errorType: .noDataInDB, errorTitle: "There is no UserScore data in db", descritpion: nil)
+                assertionFailure(error.errorTitle)
                 DispatchQueue.main.async {
-                    callback(nil)
+                    callback(.failure(error))
                 }
             }
         }

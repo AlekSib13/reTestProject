@@ -14,6 +14,7 @@ protocol RateProductInteractorProtocol {
     func getCountedLoadedItems() -> Int
     func removeData(at index: Int)
     func sendProductRating(at index: Int, rating: ProductRatingRange, callback: @escaping (Result<UserScoreModel, Error>) -> Void)
+    func getUserScore(callback: @escaping (UserScoreModel) -> Void)
 }
 
 class RateProductInteractor: RateProductInteractorProtocol {
@@ -41,7 +42,14 @@ class RateProductInteractor: RateProductInteractorProtocol {
     
     init(manager: RateProductManagerProtocol) {
         self.manager = manager
-        //the initial userscore should be retrieved from db, since we received it during the entrance to the app
+    }
+    
+    func getUserScore(callback: @escaping (UserScoreModel) -> Void) {
+        manager.getUserData {[weak self] data in
+            guard let self = self else {return}
+            self.userScore = data
+            callback(data)
+        }
     }
     
     func getProductsData(offset: Int, limit: Int, callback: @escaping (Result<[RateProductModel]?, Error>) -> Void)  {
