@@ -12,7 +12,7 @@ class RateProductBuilder {
     
     static func build() -> UIViewController {
         let router = RateProductRouter()
-        let interactor = RateProductInteractor(manager: RateProductManager(restService: RestAPIService.shared))
+        let interactor = RateProductInteractor(manager: RateProductManager(restService: RestAPIService.shared, dbManager: RealmDBManager.shared))
         let presenter = RateProductPresenter(interactor: interactor, router: router)
         let viewController = RateProductContainerViewController(presenter: presenter)
         

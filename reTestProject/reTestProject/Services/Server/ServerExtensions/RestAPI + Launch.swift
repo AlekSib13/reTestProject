@@ -15,14 +15,21 @@ protocol RestLaunchProtocol {
 
 extension RestAPIService: RestLaunchProtocol {
     func getUserData(callback: @escaping UserScoreCallback) {
-        let url = baseRestURL.appending(path: "/user")
-        return makeDecodableRequestForData(url: url, callback: callback)
+        //mockData
+        callback(.success(UserScoreModel(currentScore: 0, totalScore: 30)))
+        //TODO: uncommentApiCalls
+//        let url = baseRestURL.appending(path: "/user")
+//        return makeDecodableRequestForData(url: url, callback: callback)
     }
     
     
     func getToken(login: String, password: String, callback: @escaping DictStringCallback) {
-        let url = baseRestURL.appending(path: "/token")
-        let params: Parameters = ["login": login, "password": password]
-        return makeDecodableRequestForData(url: url, callback: callback)
+        //mockData
+        callback(.success(["token":"skamdksnq"]))
+        
+        //TODO: uncommentApiCalls
+//        let url = baseRestURL.appending(path: "/token")
+//        let params: Parameters = ["login": login, "password": password]
+//        return makeDecodableRequestForData(url: url, callback: callback)
     }
 }

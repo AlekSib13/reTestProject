@@ -11,14 +11,17 @@ import Foundation
 protocol RateProductManagerProtocol {
     func getRateProducts(offset: Int, limit: Int, callback: @escaping ProductRateCallback)
     func sendProductRating(for id: Int, dict: [String: Int], callback: @escaping UserScoreCallback)
+    func getUserData(callback: @escaping (UserScoreModel) -> Void)
 }
 
 class RateProductManager: RateProductManagerProtocol {
     
     let restService: RestRateProductProtocol
+    let dbManager: UserDataManagerProtocol
     
-    init(restService: RestRateProductProtocol) {
+    init(restService: RestRateProductProtocol, dbManager: UserDataManagerProtocol) {
         self.restService = restService
+        self.dbManager = dbManager
     }
     
     //MARK: the line below is for mock usage only
@@ -49,5 +52,17 @@ class RateProductManager: RateProductManagerProtocol {
         callback(.success(userScore))
         //TODO: uncomment for API requests and hide mock data
 //        restService.sendRating(id: id, dict: dict, callback: callback)
+    }
+    
+    func getUserData(callback: @escaping (UserScoreModel) -> Void) {
+        let key = UserDefaults.standard.string(forKey: AppKeys.UserDefaultKeys.token)!
+        dbManager.readUserScoreFromDB(id: key) {result in
+            switch result {
+            case .success(let userScoreModel):
+                callback(userScoreModel)
+            case .failure(let error):
+                assertionFailure(error.localizedDescription)
+            }
+        }
     }
 }

@@ -39,6 +39,11 @@ class RateProductPresenter: NSObject, RateProductPresenterProtocol {
     }
     
     private func makeInitialDataRequest() {
+        interactor.getUserScore {[weak self] userScoreModel in
+            guard let self = self else {return}
+            self.updateUserRating(newScore: userScoreModel.currentScore, totalScore: userScoreModel.totalScore)
+        }
+        
         interactor.getProductsData(offset: GeneralConstants.APIGeneralConstants.requestDefaultOffset, limit: GeneralConstants.APIGeneralConstants.requestDefaultLimit) {[weak self] result in
             guard let self = self else {return}
             switch result {
